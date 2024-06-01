@@ -4,14 +4,17 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import SideBar from './navbar/SideBar'
 import ProductCard from './components/ProductCard'
+import { Route, Routes } from 'react-router-dom'
+import ProductDetails from './pages/ProductDetails'
+import Home from './pages/Home'
 
 function App() {
   return (
-    <div style={{display:'flex'}}>
-    <SideBar/>
-    <div style={{width:"85%"}} className='d-flex align-content-start flex-wrap'>
-      <ProductCard/>
-    </div>
+    <div style={{width:"85%",display:"flex"}} className='d-flex align-content-start flex-wrap'>
+      <Routes>
+        <Route path='/'element={<Home/>}/>
+        <Route path='/product/1'element={<ProductDetails/>}/>
+      </Routes>
     </div>
   )
 }
