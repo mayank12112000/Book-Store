@@ -12,7 +12,7 @@ import { ProductContext } from './utils/ProductContext'
   return (
       <Routes>
         <Route path='/'element={<Home/>}/>
-        <Route path='/product/:productId'element={<ProductDetails products={products} setProducts={setProducts}/>}/>
+        <Route path='/product/:productId'element={<ProductDetails/>}/>
       </Routes>
   )
 }
