@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from "react-router-dom"
+import "./productCard.css"
 export default function ProductCard({ product }) {
     return (
-        <div className='container m-1' style={{ overflow: "hidden", height: "15rem", width: "15rem", border: "2px solid black" }}>
+        <div className='container m-1' style={{ overflow: "hidden", height: "18rem", width: "18rem", border: "2px solid black" }}>
             <Link to={`./product/${product.id}`}>
-                <div style={{ height: "80%", backgroundImage: `url("${product.image}")`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}></div>
+                <div className='zoom-container' style={{ margin:"5px",height: "80%", backgroundImage: `url("${product.image}")`, backgroundSize: "contain", backgroundPosition: "center", backgroundRepeat: "no-repeat" }}></div>
                 <p>{product.title}</p>
             </Link>
         </div>

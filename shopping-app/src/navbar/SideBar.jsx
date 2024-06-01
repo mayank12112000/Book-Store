@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function SideBar() {
     return (
-        <div className="flex-shrink-0 p-3" style={{ width: "8rem",height:"100vh",marginRight:"20px",background:"yellow"}}>
+        <div className="flex-shrink-0 p-3" style={{ width: "13rem",height:"100vh",marginRight:"20px",background:"#FFF9D0"}}>
             <button  href="/" className="btn btn-outline-primary " style={{textAlign:"center"}}>
                 <span className="fs-5 fw-semibold">Add New Product</span>
             </button>
