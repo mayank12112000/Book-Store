@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function SideBar() {
     return (
-        <div className="flex-shrink-0 p-3" style={{ width: "20rem"}}>
+        <div className="flex-shrink-0 p-3" style={{ width: "8rem",height:"100vh",marginRight:"20px",background:"yellow"}}>
             <button  href="/" className="btn btn-outline-primary " style={{textAlign:"center"}}>
                 <span className="fs-5 fw-semibold">Add New Product</span>
             </button>
