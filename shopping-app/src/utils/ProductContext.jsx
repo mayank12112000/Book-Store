@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from 'react'
 
 export const ProductContext = createContext()
 export  function ProductProvider({children}) {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState(null)
 
   const fetchData =  async()=>{
     const response = await fetch("https://fakestoreapi.com/products/")
