@@ -7,7 +7,7 @@ export default function Products() {
     console.log(products)
     console.log(setProducts)
   return (
-    <div style={{ display: 'flex',flexDirection:"column", flexWrap: 'wrap', justifyContent: 'space-around' }}>
+    <div className='products-list' style={{display:"flex",flexWrap:"wrap",maxWidth:"100%"}}>
     {products && products.map((product)=><ProductCard key={product.id} product={product}/>)}
     </div>
   )
