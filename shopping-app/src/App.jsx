@@ -1,19 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useContext, useEffect, useState } from 'react'
 import './App.css'
-import SideBar from './navbar/SideBar'
-import ProductCard from './components/ProductCard'
 import { Route, Routes } from 'react-router-dom'
 import ProductDetails from './pages/ProductDetails'
 import Home from './pages/Home'
+import { ProductContext } from './utils/ProductContext'
 
-function App() {
+ function App() {
+
+ const {products,setProducts} =  useContext(ProductContext)
+ console.log(products)
   return (
     <div style={{width:"85%",display:"flex"}} className='d-flex align-content-start flex-wrap'>
       <Routes>
         <Route path='/'element={<Home/>}/>
-        <Route path='/product/1'element={<ProductDetails/>}/>
+        <Route path='/product/:productId'element={<ProductDetails products={products} setProducts={setProducts}/>}/>
       </Routes>
     </div>
   )

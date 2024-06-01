@@ -1,12 +1,12 @@
 import React from 'react'
 import SideBar from '../navbar/SideBar'
-import ProductCard from '../components/ProductCard'
+import Products from './Products'
 
 export default function Home() {
   return (
     <>
     <SideBar/>
-    <ProductCard/>
+    <Products/>
     </>
   )
 }
