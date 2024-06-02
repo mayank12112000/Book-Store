@@ -16,14 +16,14 @@ export default function ProductDetails() {
         getSingleProduct()
     },[productId])
 
+    
+    console.log(productId)
     if(!singleData){
         return(<Loading/>)
     }
     const { image, title, description, price, rating, category } = singleData;
-
-    console.log(productId)
-    return (
-
+    
+    return(
         <div style={{ width: "30rem", height: "100vh", display: "flex", justifyContent: "center"}}>
             <div style={{margin:"auto",width:"30rem",display: "flex", justifyContent: "center", flexDirection: "row" }}>
                 <div className=""
