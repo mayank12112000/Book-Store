@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
 
 export default function SideBar() {
+
     return (
         <div className="flex-shrink-0 p-3" style={{position:"fixed", width: "13rem",height:"100vh",marginRight:"20px",background:"#FFF9D0",overflow:"auto"}}>
             <button  href="/" className="btn btn-outline-primary " style={{textAlign:"center"}}>

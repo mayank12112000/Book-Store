@@ -6,9 +6,6 @@ import Home from './pages/Home'
 import { ProductContext } from './utils/ProductContext'
 
  function App() {
-
- const {products,setProducts} =  useContext(ProductContext)
- console.log(products)
   return (
       <Routes>
         <Route path='/'element={<Home/>}/>

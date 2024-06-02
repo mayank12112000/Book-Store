@@ -1,11 +1,25 @@
-import React, { useContext } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { ProductContext } from '../utils/ProductContext'
+import React, { useContext, useEffect, useState } from 'react'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
+import Loading from '../components/Loading'
 export default function ProductDetails() {
     const { productId } = useParams()
-    const { products } = useContext(ProductContext)
-    const productSelected = products[productId - 1]
-    const { image, title, description, price, rating, category } = productSelected;
+    const [singleData,setSingleData] = useState(null)
+    const getSingleProduct = async()=>{
+        const response = await fetch(`https://fakestoreapi.com/products/${productId}`)
+        if(response.ok){
+            const signleProduct = await response.json()
+            setSingleData(signleProduct)
+            console.log(signleProduct)
+        }
+    }
+    useEffect(()=>{
+        getSingleProduct()
+    },[productId])
+
+    if(!singleData){
+        return(<Loading/>)
+    }
+    const { image, title, description, price, rating, category } = singleData;
 
     console.log(productId)
     return (
@@ -33,6 +47,5 @@ export default function ProductDetails() {
                 </div>
             </div>
         </div>
-
     )
 }
