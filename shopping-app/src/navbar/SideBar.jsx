@@ -1,6 +1,12 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
+import { ProductContext } from '../utils/ProductContext'
+import Category from '../components/Category'
 
 export default function SideBar() {
+    const {uniqueCategories,category} = useContext(ProductContext)
+    const [dropDownActive,setDropDownActive] = useState(false)
+
+    console.log(uniqueCategories)
 
     return (
         <div className="flex-shrink-0 p-3" style={{position:"fixed", width: "13rem",height:"100vh",marginRight:"20px",background:"#FFF9D0",overflow:"auto"}}>
@@ -10,15 +16,14 @@ export default function SideBar() {
             <hr />
             <ul className="list-unstyled ps-0">
                 <li className="mb-1">
-                    <button className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
-                       <h6>Category Filter </h6>
+                    <button onClick={()=>setDropDownActive(!dropDownActive)} className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+                        <h6> {dropDownActive?'▼ ':'▶ '}Category Filter </h6>
                     </button>
                     <div className="collapse" id="home-collapse" >
                         <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li style={{ marginLeft: "20px", padding: "3px 8px" }}><a href="/" className="link-body-emphasis d-inline-flex text-decoration-none rounded">cat 1</a></li>
-                            <li style={{ marginLeft: "20px", padding: "3px 8px" }}><a href="/" className="link-body-emphasis d-inline-flex text-decoration-none rounded">cat 2</a></li>
-                            <li style={{ marginLeft: "20px", padding: "3px 8px" }}><a href="/" className="link-body-emphasis d-inline-flex text-decoration-none rounded">cat 3</a></li>
-                        </ul>
+                        {uniqueCategories && uniqueCategories.map((category,idx)=><Category key={idx} children={category}/>)}   
+                        {/* unique categories && validation was required since it will throw map not executable when uniquecategories was not fetched */}
+                         </ul>
                     </div>
                 </li>
             </ul>
