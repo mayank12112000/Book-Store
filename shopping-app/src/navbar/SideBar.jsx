@@ -17,7 +17,7 @@ export default function SideBar() {
             <ul className="list-unstyled ps-0">
                 <li className="mb-1">
                     <button onClick={()=>setDropDownActive(!dropDownActive)} className="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
-                        <h6> {dropDownActive?'▼ ':'▶ '}Category Filter </h6>
+                        <h6> {dropDownActive?'▽ ':'▷ '}Category Filter </h6>
                     </button>
                     <div className="collapse" id="home-collapse" >
                         <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
