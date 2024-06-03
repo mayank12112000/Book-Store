@@ -10,7 +10,9 @@ export function ProductProvider({ children }) {
     try {
       const response = await fetch("https://fakestoreapi.com/products/")
       const data = await response.json()
-      const allCategories = await data.map((product) => product.category)
+      const categoryResponse = await fetch('https://fakestoreapi.com/products/categories')
+      const allCategories = await categoryResponse.json()
+      console.log("cat",allCategories)
       setCategory(allCategories)
       const uniqueCategories = new Set(allCategories)
       setUniqueCategories([...uniqueCategories])
