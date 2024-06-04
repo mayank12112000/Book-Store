@@ -10,6 +10,7 @@ import { ProductContext } from './utils/ProductContext'
       <Routes>
         <Route path='/'element={<Home/>}/>
         <Route path='/product/:productId'element={<ProductDetails/>}/>
+        <Route path='/category/:category'element={<Home/>}/>
       </Routes>
   )
 }
