@@ -23,7 +23,7 @@ export default function SideBar() {
                     <div className="collapse" id="home-collapse" >
                         <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             {uniqueCategories && uniqueCategories.map((category, idx) =>
-                                <Category  children={category} />
+                                <Category  key={idx} children={category} />
                             )}
                         </ul>
                     </div>

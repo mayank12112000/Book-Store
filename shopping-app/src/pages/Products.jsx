@@ -6,6 +6,7 @@ import Error from './Error'
 
 export default function Products() {
     const { products, setProducts,error } = useContext(ProductContext)
+    console.log(products)
     console.log("error from use context::",error)
     if(error){
         console.log(error.message)
