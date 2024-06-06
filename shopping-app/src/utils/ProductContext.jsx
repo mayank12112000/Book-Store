@@ -3,7 +3,6 @@ import React, { createContext, useEffect, useState } from 'react'
 export const ProductContext = createContext()
 export function ProductProvider({ children }) {
   const [products, setProducts] = useState(null)
-  const [allCategories, setAllCategories] = useState(null)
   const [error,setError] = useState(null)
   const [uniqueCategories,setUniqueCategories] = useState(null)
   const [filterByCategory,setFilterByCategory] = useState("")
@@ -14,7 +13,6 @@ export function ProductProvider({ children }) {
       const data = await response.json()
       const categoryResponse = await fetch('https://fakestoreapi.com/products/categories')
       const allCategories = await categoryResponse.json()
-      setAllCategories(allCategories)
       const uniqueCategories = new Set(allCategories)
       setUniqueCategories([...uniqueCategories])
       setProducts(data)
@@ -29,7 +27,7 @@ export function ProductProvider({ children }) {
   }, [filterByCategory])
 
   return (
-    <ProductContext.Provider value={{ products, setProducts, error, uniqueCategories,allCategories,filterByCategory,setFilterByCategory }}>
+    <ProductContext.Provider value={{ products, setProducts, error, uniqueCategories,filterByCategory,setFilterByCategory }}>
       {children}
     </ProductContext.Provider>
   )

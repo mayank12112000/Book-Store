@@ -3,7 +3,7 @@ import './App.css'
 import { Route, Routes } from 'react-router-dom'
 import ProductDetails from './pages/ProductDetails'
 import Home from './pages/Home'
-import { ProductContext } from './utils/ProductContext'
+import Create from "./pages/Create"
 
  function App() {
   return (
@@ -11,6 +11,7 @@ import { ProductContext } from './utils/ProductContext'
         <Route path='/'element={<Home/>}/>
         <Route path='/product/:productId'element={<ProductDetails/>}/>
         <Route path='/category/:category'element={<Home/>}/>
+        <Route path='/createProduct'element={<Create/>}/>
       </Routes>
   )
 }

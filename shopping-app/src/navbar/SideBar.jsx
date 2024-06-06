@@ -11,9 +11,9 @@ export default function SideBar() {
 
     return (
         <div className="flex-shrink-0 p-3" style={{ position: "fixed", width: "13rem", height: "100vh", marginRight: "20px", background: "#FFF9D0", overflow: "auto" }}>
-            <button href="/" className="btn btn-outline-primary " style={{ textAlign: "center" }}>
+            <Link to="/createProduct" className="btn btn-outline-primary " style={{ textAlign: "center" }}>
                 <span className="fs-5 fw-semibold">Add New Product</span>
-            </button>
+            </Link>
             <hr />
             <ul className="list-unstyled ps-0">
                 <li className="mb-1">
