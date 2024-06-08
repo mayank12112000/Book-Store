@@ -1,20 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useParams, useSearchParams } from 'react-router-dom'
 import Loading from '../components/Loading'
+import { ProductContext } from '../utils/ProductContext'
 export default function ProductDetails() {
+    const { products, setProducts,error } = useContext(ProductContext)
+    console.log("all products",products)
     const { productId } = useParams()
     const [singleData,setSingleData] = useState(null)
-    const getSingleProduct = async()=>{
-        const response = await fetch(`https://fakestoreapi.com/products/${productId}`)
-        if(response.ok){
-            const signleProduct = await response.json()
-            setSingleData(signleProduct)
-            console.log(signleProduct)
+    const getSingleProduct= ()=>{
+        if(products){
+            setSingleData(products.find((product)=>(product.id).toString() === productId))
         }
     }
+
     useEffect(()=>{
         getSingleProduct()
-    },[productId])
+    },[products,productId])
 
     
     console.log(productId)
@@ -38,7 +39,7 @@ export default function ProductDetails() {
                     <h2>{title}</h2>
                     <p>Category: {category}</p>
                     <p>Price: $ {price}</p>
-                    <p>Rating: {rating.rate}/5</p>
+                    {rating ? <p>Rating: {rating.rate}/5</p>:<p>No ratings</p>}
                     <div>{description}</div>
                     <div className='container'>
                         <button className="p-2 m-2 btn btn-outline-success">Edit </button>
