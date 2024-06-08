@@ -1,20 +1,26 @@
 import React, { useContext, useState } from 'react'
 import { ProductContext } from '../utils/ProductContext'
 import { Link } from 'react-router-dom'
+import {nanoid} from "nanoid"
 
 export default function Create() {
-  const { uniqueCategories } = useContext(ProductContext)
+  const { uniqueCategories,products, setProducts} = useContext(ProductContext)
   const [product, setProduct] = useState({ title: "", image: "", price: "", category: "", description: "" })
-  console.log(product)
   const handleFormChange = (e) => {
     const { name, value, type } = e.target;
     setProduct((predata) => {
       return { ...predata, [name]: value }
     })
   }
+console.log("final all products after addition:",products)
+  const handleOnSubmit=(e,product)=>{
+    console.log(product)
+    setProducts([...products,{id:nanoid(),...product}])
+     e.preventDefault()
+  }
 
   return (
-    <form onSubmit={(e) => e.preventDefault()} className='container d-flex flex-column my-5' style={{ width: "50%", borderRadius: "8px" }} >
+    <form onSubmit={(e)=>handleOnSubmit(e,product)} className='container d-flex flex-column my-5' style={{ width: "50%", borderRadius: "8px" }} >
       <h2 className="h4 mx-3 my-3 pb-2 mb-4 text-success ">
         Add New Product
       </h2>
