@@ -3,22 +3,13 @@ import { Link, useParams, useSearchParams } from 'react-router-dom'
 import Loading from '../components/Loading'
 import { ProductContext } from '../utils/ProductContext'
 export default function ProductDetails() {
-    const { products, setProducts,error } = useContext(ProductContext)
-    console.log("all products",products)
     const { productId } = useParams()
     const [singleData,setSingleData] = useState(null)
-    const getSingleProduct= ()=>{
-        if(products){
-            setSingleData(products.find((product)=>(product.id).toString() === productId))
-        }
-    }
-
+    const localStorageProducts = JSON.parse(localStorage.getItem("products"))
     useEffect(()=>{
-        getSingleProduct()
-    },[products,productId])
+            setSingleData(localStorageProducts.find((product)=>(product.id).toString() === productId))
+    },[productId])
 
-    
-    console.log(productId)
     if(!singleData){
         return(<Loading/>)
     }

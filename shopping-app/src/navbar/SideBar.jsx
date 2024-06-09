@@ -1,14 +1,11 @@
 import React, { useContext, useState } from 'react'
 import { ProductContext } from '../utils/ProductContext'
 import Category from '../components/Category'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 export default function SideBar() {
     const { uniqueCategories, category } = useContext(ProductContext)
     const [dropDownActive, setDropDownActive] = useState(false)
-
-    console.log(uniqueCategories)
-
     return (
         <div className="flex-shrink-0 p-3" style={{ position: "fixed", width: "13rem", height: "100vh", marginRight: "20px", background: "#FFF9D0", overflow: "auto" }}>
             <Link to="/createProduct" className="btn btn-outline-primary " style={{ textAlign: "center" }}>
@@ -23,8 +20,12 @@ export default function SideBar() {
                     <div className="collapse" id="home-collapse" >
                         <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                             {uniqueCategories && uniqueCategories.map((category, idx) =>
-                                <Category  key={idx} children={category} />
+                                <Category key={idx} children={category} />
                             )}
+                            <li>
+                                <NavLink activestyle={{ color: "blue" }} to={`/`} className="link-body-emphasis d-inline-flex text-decoration-none rounded">◈ clear all filter</NavLink>
+                            </li>
+
                         </ul>
                     </div>
                 </li>

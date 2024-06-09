@@ -1,11 +1,14 @@
 import React, { useContext, useState } from 'react'
 import { ProductContext } from '../utils/ProductContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {nanoid} from "nanoid"
 
 export default function Create() {
+  const navigate = useNavigate()
   const { uniqueCategories,products, setProducts} = useContext(ProductContext)
   const [product, setProduct] = useState({ title: "", image: "", price: "", category: "", description: "" })
+  const localJsonProducts = JSON.parse(localStorage.getItem("products"))
+  console.log("local storage",localJsonProducts)
   const handleFormChange = (e) => {
     const { name, value, type } = e.target;
     setProduct((predata) => {
@@ -15,8 +18,11 @@ export default function Create() {
 console.log("final all products after addition:",products)
   const handleOnSubmit=(e,product)=>{
     console.log(product)
-    setProducts([...products,{id:nanoid(),...product}])
+    const id = nanoid()
+    setProducts([...localJsonProducts,{id:id,...product}])
+    localStorage.setItem("products",JSON.stringify([...localJsonProducts,{id:id,...product}]))
      e.preventDefault()
+     navigate("/")
   }
 
   return (
