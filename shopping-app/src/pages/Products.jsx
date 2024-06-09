@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom'
 
 export default function Products() {
     const categoryParam = useParams()
+    const {filterByCategory} = useContext(ProductContext)
     console.log("category param", categoryParam)
     console.log("category param length", categoryParam.length)
     const [productsTOShow,setProductsToShow] = useState(null)
@@ -15,12 +16,14 @@ export default function Products() {
     useEffect(() => {
         console.log("caregory param length ",categoryParam)
         if(categoryParam.category){
+            console.log("if executed")
             setProductsToShow(products.filter((product) => product.category === categoryParam.category))
         }else{
+            console.log("else executed")
             setProductsToShow(products)
         }
         console.log("produtc to show", productsTOShow)
-    },[categoryParam])
+    },[filterByCategory])
 
     console.log("products by products.jsx1", products)
     console.log("parameter:", categoryParam.category)
