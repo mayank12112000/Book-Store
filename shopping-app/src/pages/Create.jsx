@@ -10,7 +10,7 @@ export default function Create() {
   const localJsonProducts = JSON.parse(localStorage.getItem("products"))
   console.log("local storage",localJsonProducts)
   const handleFormChange = (e) => {
-    const { name, value, type } = e.target;
+    const { name, value } = e.target;
     setProduct((predata) => {
       return { ...predata, [name]: value }
     })
