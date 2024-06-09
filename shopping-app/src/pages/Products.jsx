@@ -23,7 +23,7 @@ export default function Products() {
             setProductsToShow(products)
         }
         console.log("produtc to show", productsTOShow)
-    },[filterByCategory])
+    },[categoryParam])
 
     console.log("products by products.jsx1", products)
     console.log("parameter:", categoryParam.category)
