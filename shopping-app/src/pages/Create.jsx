@@ -6,7 +6,7 @@ import {nanoid} from "nanoid"
 export default function Create() {
   const navigate = useNavigate()
   const { uniqueCategories,products, setProducts} = useContext(ProductContext)
-  const [product, setProduct] = useState({ title: "", image: "", price: "", category: uniqueCategories[0], description: "" })
+  const [product, setProduct] = useState({ title: "", image: "", price: "", category: uniqueCategories[0], description: "",rating:{rate:0,count:0} })
   const localJsonProducts = JSON.parse(localStorage.getItem("products"))
   console.log("local storage",localJsonProducts)
   const handleFormChange = (e) => {

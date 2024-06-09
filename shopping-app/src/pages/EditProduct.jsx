@@ -7,7 +7,8 @@ export default function EditProduct() {
     const { uniqueCategories, setProducts} = useContext(ProductContext)
     console.log(productId)
     const products = JSON.parse(localStorage.getItem("products"))
-    const productToEdit = products.find((product) => product.id === Number(productId))
+    const productToEdit = products.find((product) => (product.id).toString() === (productId))
+    console.log("rpoduct to edit",productToEdit)
     const { id, title, description, rating, image, category,price } = productToEdit
     const [formData,setFormData] = useState({id:id,title:title,price:price,description:description,rating:rating,image:image,category:category})
 
