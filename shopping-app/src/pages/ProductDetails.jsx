@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import Loading from '../components/Loading'
-import { ProductContext } from '../utils/ProductContext'
 export default function ProductDetails() {
     const navigate = useNavigate()
     const { productId } = useParams()

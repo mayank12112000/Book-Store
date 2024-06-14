@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react'
-import { ProductContext } from '../utils/ProductContext'
 import { Link, useNavigate } from 'react-router-dom'
 import {nanoid} from "nanoid"
 
 export default function Create() {
   const navigate = useNavigate()
-  const { uniqueCategories,products, setProducts} = useContext(ProductContext)
+  const { uniqueCategories,products, setProducts} = null;
   const [product, setProduct] = useState({ title: "", image: "", price: "", category: uniqueCategories[0], description: "",rating:{rate:0,count:0} })
   const localJsonProducts = JSON.parse(localStorage.getItem("products"))
   console.log("local storage",localJsonProducts)

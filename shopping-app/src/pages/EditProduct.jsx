@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
-import { ProductContext } from '../utils/ProductContext'
 
 export default function EditProduct() {
     const navigate = useNavigate()
     const { productId } = useParams()
-    const { uniqueCategories, setProducts } = useContext(ProductContext)
+    const { uniqueCategories, setProducts } = null
     console.log(productId)
     const products = JSON.parse(localStorage.getItem("products"))
     const productToEdit = products.find((product) => (product.id).toString() === (productId))

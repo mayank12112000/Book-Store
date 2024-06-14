@@ -1,10 +1,9 @@
 import React, { useContext, useState } from 'react'
-import { ProductContext } from '../utils/ProductContext'
 import Category from '../components/Category'
 import { Link, NavLink } from 'react-router-dom'
 
 export default function SideBar() {
-    const { uniqueCategories, category } = useContext(ProductContext)
+    const { uniqueCategories, category } = null
     const [dropDownActive, setDropDownActive] = useState(false)
     return (
         <div className="flex-shrink-0 p-3" style={{ position: "fixed", width: "13rem", height: "100vh", marginRight: "20px", background: "#FFF9D0", overflow: "auto" }}>

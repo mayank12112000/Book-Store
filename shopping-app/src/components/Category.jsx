@@ -1,9 +1,8 @@
 import React, { useContext } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { ProductContext } from '../utils/ProductContext'
 
 export default function Category({children}) {
-    const {filterByCategory,setProducts,setFilterByCategory} = useContext(ProductContext)
+    const {filterByCategory,setProducts,setFilterByCategory} = null
     const handleOnClick=()=>{
       setProducts(null)
       console.log("children",children)

@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { ProductContext } from '../utils/ProductContext'
 import ProductCard from '../components/ProductCard'
 import Loading from '../components/Loading'
 import Error from './Error'
@@ -7,8 +6,8 @@ import { useParams } from 'react-router-dom'
 
 export default function Products() {
     const categoryParam = useParams()
-    const {filterByCategory} = useContext(ProductContext)
-    console.log("category param", categoryParam)
+    const {filterByCategory} = null
+        console.log("category param", categoryParam)
     console.log("category param length", categoryParam.length)
     const [productsTOShow,setProductsToShow] = useState(null)
     let products = JSON.parse(localStorage.getItem("products"))
@@ -27,7 +26,7 @@ export default function Products() {
 
     console.log("products by products.jsx1", products)
     console.log("parameter:", categoryParam.category)
-    const { error } = useContext(ProductContext)
+    const { error } =null
     console.log("error from use context::", error)
     if (error) {
         console.log(error.message)
