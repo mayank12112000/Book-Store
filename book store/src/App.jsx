@@ -10,11 +10,12 @@ import LoginPage from './features/auth/LoginPage';
 import CheckoutPage from './pages/CheckoutPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
+import "./App.css"
 function App() {
   return (
     <Router>
-      
+      <div className='wrapper'>
+      <main className='main'>
           <Navbar />
           <Routes>
             <Route path="/" exact element={<HomePage/>}/>
@@ -26,7 +27,9 @@ function App() {
             <Route path="/login" element={<LoginPage/>}/>
             <Route path="/checkout" element={<CheckoutPage/>}/>
           </Routes>
+      </main>
           <Footer />
+      </div>
     </Router>
   );
 }

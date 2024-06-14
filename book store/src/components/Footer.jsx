@@ -1,9 +1,15 @@
-import React from 'react'
+// Footer.js
 
-export default function Footer() {
+import React from 'react';
+import './footer.css'
+const Footer = () => {
   return (
-    <div>
-      footer component
-    </div>
-  )
-}
+    <footer className="footer bg-dark text-white text-center py-3">
+      <div className="container">
+        <p className="mb-0">&copy; 2024 Bookify. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
