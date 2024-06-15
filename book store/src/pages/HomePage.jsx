@@ -5,6 +5,7 @@ import categoriesApi from '../features/categories/categoriesApi';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategoriesAsync } from '../features/categories/categorySlice';
 import Spinner from '../components/Spinner';
+import Footer from '../components/Footer';
 const HomePage = () => {
   const {categories,error,status} = useSelector((state)=>state.categories)
   const dispatch = useDispatch()
@@ -38,11 +39,8 @@ const HomePage = () => {
       }
       </div>
       </div>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At temporibus dignissimos reiciendis eos, minus laboriosam enim eligendi quaerat odio repudiandae? Velit, repudiandae cumque. Unde eius dolore, quis tempora nesciunt assumenda.</p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At temporibus dignissimos reiciendis eos, minus laboriosam enim eligendi quaerat odio repudiandae? Velit, repudiandae cumque. Unde eius dolore, quis tempora nesciunt assumenda.</p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At temporibus dignissimos reiciendis eos, minus laboriosam enim eligendi quaerat odio repudiandae? Velit, repudiandae cumque. Unde eius dolore, quis tempora nesciunt assumenda.</p>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At temporibus dignissimos reiciendis eos, minus laboriosam enim eligendi quaerat odio repudiandae? Velit, repudiandae cumque. Unde eius dolore, quis tempora nesciunt assumenda.</p>
-    </div>
+      <Footer/>
+      </div>
   );
 };
 

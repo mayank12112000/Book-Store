@@ -1,6 +1,8 @@
-
+.image-box{
+    padding: 2rem 3rem;
+}
 .homepage{
-    padding: 1rem 6rem;
+    /* padding: 1rem 6rem; */
     .featured-heading{
         text-align: center;
     }
@@ -33,5 +35,5 @@
 .category-box{
     display: flex;
     justify-content: center;
-    
+    padding: 20px 0;
 }

@@ -6,10 +6,6 @@
   flex-direction: column;
 }
 
-.main{
-  padding-bottom: var(--footer-height) ;
-}
-
 /* Set the base font size for the root element */
 html {
   font-size: 16px;

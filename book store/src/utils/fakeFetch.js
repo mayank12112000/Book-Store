@@ -7,7 +7,7 @@ const fakeFetch=(data)=>{
         setTimeout(() => {
             if(shouldFail){
                 // reject("failed to fetch data") if we will reject api response will be fulfilled
-                throw new Error("failed to fetch data") // simulate reject error
+                throw new Error("failed to fetch data, internal server error") // simulate reject error
             }else{
                 resolve(data) // simulate response
             }
