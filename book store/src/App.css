@@ -5,11 +5,7 @@
   display: flex;
   flex-direction: column;
 }
-.footer{
-  position: fixed;
-  bottom: 0px;
-  width: 100vw;
-}
+
 .main{
   padding-bottom: var(--footer-height) ;
 }
@@ -70,6 +66,32 @@ p {
   p {
     font-size: 1rem;
   }
+}
+
+/* scrool bar */
+/* Custom scrollbar for Webkit-based browsers */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  height: 8px; /* Height of the scrollbar for horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #007bb5; /* Color of the scrollbar handle (thumb) */
+  border-radius: 10px; /* Rounded corners for the scrollbar handle */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #007bb5; /* Darker blue when hovered */
+}
+
+/* Custom scrollbar for Firefox */
+body {
+  scrollbar-width: thin; /* Slim scrollbar */
+  scrollbar-color: #007bb5 #f1f1f1; /* Scrollbar color and track color */
 }
 
 /* #root {
