@@ -1,6 +1,6 @@
 const categories = [
-    { name: 'Fictional', description: 'Books that tell imaginative stories.' },
-    { name: 'Non-Fictional', description: 'Books that present facts and reality.' },
-    { name: 'Self-Help', description: 'Books that offer guidance for personal improvement.' },
+    { name: 'Fictional', description: 'Literature in the form of prose, especially novels, that describes imaginary events and people' },
+    { name: 'Non-Fictional', description: 'Non-fiction is writing that gives information or describes real events, rather than telling a story.' },
+    { name: 'Self-Help', description: 'Meant to cause discomfort and fear for both the character and readers.' },
   ];
   export default categories
