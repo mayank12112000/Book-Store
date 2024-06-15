@@ -13,6 +13,65 @@
 .main{
   padding-bottom: var(--footer-height) ;
 }
+
+/* Set the base font size for the root element */
+html {
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+/* Fluid typography using the clamp() function */
+body {
+  font-size: 1.125rem;
+}
+
+/* Headings */
+h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+/* Paragraphs */
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Responsive typography using media queries */
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  p {
+    font-size: 1.125rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 2rem;
+    /* color: blue; */
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;

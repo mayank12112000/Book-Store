@@ -1,0 +1,42 @@
+.container{
+    padding: 0px;
+}
+.input-group{
+    width: 20vw;
+}
+.search-input{
+    border: 0px;
+    border-radius: 0 0.2rem 0.2rem 0;
+}
+.search-bar{
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0.2rem;
+    display: flex;
+    height: 100%;
+}
+.search-icon{
+    background-color: white;
+    border-radius: 0.2rem;
+}
+.form-control{
+    height: 100%;
+}
+
+.navbar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border-radius: 5px; /* Optional: to round the corners */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    background-color: #6c9bca; /* Light gray background on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+  }
+  .navbar{
+    background-color: #007bb5;
+  }
+  
