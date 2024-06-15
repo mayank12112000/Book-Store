@@ -1,0 +1,20 @@
+.featured-category{
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+    /* border: 1px solid gray; */
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    .text{
+        padding: 1.25rem;
+        p{
+            font-size: small;
+            line-height: 12px;
+        }
+    }
+    
+}
+.featured-category:hover {
+    transform: scale(1.05); /* Scale up the image slightly on hover */
+}

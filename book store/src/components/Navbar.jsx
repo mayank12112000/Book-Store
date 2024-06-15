@@ -12,7 +12,7 @@ const Navbar = () => {
         <Link to="/" className="navbar-brand"><b>Bookify</b></Link>
 
         <div className="search-bar" >
-          <span class=" search-icon"><SearchOutlinedIcon/></span>
+          <span className=" search-icon"><SearchOutlinedIcon/></span>
           <input className="search-input" placeholder="search book" type="text" />
         </div>
         <div className="d-flex">
