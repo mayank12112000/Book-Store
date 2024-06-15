@@ -16,8 +16,9 @@ export default function LoginPage() {
         <div id="formContent">
           <br /><h2>Login</h2> <br />
           <form onSubmit={onSubmitHandler}>
-            <input type="text" id="login" className="fadeIn second" name="login" placeholder="login" />
-            <input type="text" id="password" className="fadeIn third" name="login" placeholder="password" />
+            <input type="email" required id="login" className="fadeIn second" name="login" placeholder="email" />
+            <input type="password" required id="password" className="fadeIn third" name="login" placeholder="password" />
+            <br />
             <input type="submit" className="fadeIn fourth" value="Log In" />
           </form>
           <div id="formFooter">
