@@ -21,11 +21,11 @@ const ProductListPage = () => {
         showing all products
       </div>
       <div className="responsive-grid">
-      {(error !== null || status==="failed")?
+      {(error !== null || status==="loading" || status==="failed")?
       <Loader/>
-      :(
-        books.map((book)=><div key={book.id} className='card'><ProductCard book={book}/></div>)
-      )}
+      :
+      (books.map((book)=><div key={book.id} className='card'><ProductCard book={book}/></div>))
+      }
       </div>
     
     </div>

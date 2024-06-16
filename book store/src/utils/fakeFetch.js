@@ -3,7 +3,7 @@ function getRandomDelay(){
 }
 const fakeFetch=(data)=>{
     return new Promise((resolve,reject)=>{
-        const shouldFail = Math.random() < 0.2
+        const shouldFail = Math.random() > 0.2 // failing probability 2/10
         setTimeout(() => {
             if(shouldFail){
                 // reject("failed to fetch data") if we will reject api response will be fulfilled
