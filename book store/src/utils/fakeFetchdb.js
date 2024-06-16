@@ -1,5 +1,7 @@
+const randomDelay = ()=>{
+    return Math.random() * 1500
+}
 const fakeFetch = (data)=>{
-    const randomDelay = Math.floor((Math.random()*3)+1)
     return new Promise((resolve,reject)=>{
     const internetSpeed = Math.floor((Math.random()*10)+1)
 
@@ -9,9 +11,8 @@ const fakeFetch = (data)=>{
             }else{
                 reject(new Error("internal server error"))
             }
-            
-        })
-    }, randomDelay);
+        },randomDelay())
+    })
 }
 
 export default fakeFetch
