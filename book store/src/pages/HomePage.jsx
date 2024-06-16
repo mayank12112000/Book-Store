@@ -17,6 +17,7 @@ const HomePage = () => {
   useEffect(()=>{
     dispatch(fetchCategoriesAsync())
   },[dispatch]) // since dispatch will never change during component lifetime useeffect will only run when component mounts
+
   return (
     <div className='homepage'>
       <div className='image-box'>
@@ -36,7 +37,7 @@ const HomePage = () => {
       <div className='category-container'>
       {
         status === "loading"?(<Spinner/>):status==="failed"?(<div>failed to load category</div>):(
-          categories.map((category)=><FeaturedCategory key={category.name}/>)
+          categories.map((category)=><FeaturedCategory category={category} key={category.name}/>)
         )
       }
       </div>
