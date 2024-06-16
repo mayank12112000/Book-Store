@@ -2,7 +2,6 @@ import React from 'react'
 import "./featuredCategory.css"
 
 export default function FeaturedCategory({category}) {
-  console.log(category)
   return (
     <div className='featured-category'>
         <main className='text'>

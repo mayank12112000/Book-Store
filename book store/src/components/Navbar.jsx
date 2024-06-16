@@ -24,7 +24,7 @@ const Navbar = () => {
               <Link to="/wishlist" className="navbar-icons nav-link"><FavoriteBorderOutlinedIcon/></Link>
             </li>
             <li className="nav-item mx-2">
-              <Link to="/login" className="navbar-icons nav-link"><AccountCircleOutlinedIcon/></Link>
+              <Link to="/user_profile" className="navbar-icons nav-link"><AccountCircleOutlinedIcon/></Link>
             </li>
           </ul>
         </div>

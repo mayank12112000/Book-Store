@@ -24,7 +24,7 @@ const ProductListPage = () => {
       <div className="responsive-grid">
       
       {books.length === 0 && <Loader/>}
-      {status === "failed" && <Loader/>}
+      {/* {status === "failed" && <Loader/>} */}
       {status === "succeeded" && (books.map((book)=><div key={book.id} className='card'><ProductCard book={book}/></div>))} 
       {/* // if retrieval of products is successful we will map all products  */}
    

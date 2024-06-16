@@ -11,6 +11,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import "./App.css"
+import UserProfile from './pages/UserProfile';
 function App() {
   return (
     <Router>
@@ -26,6 +27,7 @@ function App() {
             <Route path="/signup" element={<SignUpPage/>}/>
             <Route path="/login" element={<LoginPage/>}/>
             <Route path="/checkout" element={<CheckoutPage/>}/>
+            <Route path="/user_profile" element={<UserProfile/>}/>
           </Routes>
       </main>
       </div>
