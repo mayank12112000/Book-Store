@@ -1,13 +1,13 @@
 const fakeFetch = (data)=>{
+    const randomDelay = Math.floor((Math.random()*3)+1)
+    return new Promise((resolve,reject)=>{
     const internetSpeed = Math.floor((Math.random()*10)+1)
-    const randomDelay = Math.floor((Math.random*3)+1)
 
     setTimeout(() => {
-        return new Promise((resolve,reject)=>{
             if(internetSpeed>2){
                 resolve(data)
             }else{
-                reject("internal server error")
+                reject(new Error("internal server error"))
             }
             
         })

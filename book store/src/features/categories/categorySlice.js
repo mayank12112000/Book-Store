@@ -40,7 +40,7 @@ const categorySlice = createSlice({
             })
             .addCase(fetchCategoriesAsync.rejected, (state, action) => {
                 state.error = action.error.message;
-                state.status = "failed"
+                state.status = "failed" // errors are handled so it will not executed
             })
     }
 })
