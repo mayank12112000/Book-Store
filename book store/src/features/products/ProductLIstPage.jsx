@@ -1,8 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import ProductCard from '../../components/ProductCard';
+import Loader from '../../components/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductsAsync } from './productsSlice';
-
+import ProductCard from "../../components/ProductCard"
+import "./productList.css"
 const ProductListPage = () => {
   const {books,error,status} = useSelector((state)=>state.products)
   const dispatch = useDispatch()
@@ -15,8 +16,18 @@ const ProductListPage = () => {
   },[dispatch])
 
   return (
-    <div>
-      product list page
+    <div className='product-list-container'>
+      <div className="product-list-header">
+        showing all products
+      </div>
+      <div className="responsive-grid">
+      {(error !== null || status==="failed")?
+      <Loader/>
+      :(
+        books.map((book)=><div key={book.id} className='card'><ProductCard book={book}/></div>)
+      )}
+      </div>
+    
     </div>
   );
 };
