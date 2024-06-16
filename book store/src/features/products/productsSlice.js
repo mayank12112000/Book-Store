@@ -10,15 +10,12 @@ const initialState = {
 export const fetchProductsAsync = createAsyncThunk(
     "products/fetchProducts",
     async ()=>{
-        // try catch are commented here because error will be handled with the help of redux state
-        // try { 
+        // try catch are not shown here because error will be handled with the help of redux state for this slice,
+        // this is done just for learning purpose, it can also be done by try catch block but then api promise response will be fulfilled even after error
+
             const response = await productsApi;
             console.log("products slice async thunk resp:",response)
             return response
-        // } catch (error) {
-        //     console.log("products slice async thunk errror",error)
-        //     return error
-        // }
     }
 )
 
