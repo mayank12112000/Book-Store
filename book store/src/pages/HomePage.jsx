@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 const HomePage = () => {
   const {categories,error,status} = useSelector((state)=>state.categories)
   const dispatch = useDispatch()
-
   console.log("categories homepage",categories)
   console.log("error",error)
   console.log("status",status)

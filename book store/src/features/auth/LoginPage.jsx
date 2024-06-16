@@ -1,25 +1,44 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./loginpage.css"
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import testCredentials from './testCredentials'
+import { useDispatch } from 'react-redux'
+import { login } from './authSlice'
 export default function LoginPage() {
-
+  const navigate = useNavigate()
+  const [formData,setFormData] = useState({email:"",password:""})
+  const dispatch = useDispatch()
   // login submit handler
-  const onSubmitHandler = (e) => {
+  const onLoginHandler = (e) => {
+    console.log("login attempted")
+    setTimeout(() => {
+      dispatch(login(testCredentials))
+    }, 1000);
+    navigate(-1); // as user login send the page to the previous page
     e.preventDefault()
   }
-
-
+  
+const onLoginClick=()=>{
+  setFormData((predata)=>{
+    return {...predata,email:testCredentials.email,password:testCredentials.password}
+  })
+}
+  const changeHandler=(e)=>{
+    const {name,value} = e.target
+    setFormData((preData)=>{
+      return {...preData,[name]:value}
+    })
+  }
   return (
     <div className='loginpage'>
       <div className="wrapper fadeInDown">
         <div id="formContent">
           <br /><h2>Login</h2> <br />
-          <form onSubmit={onSubmitHandler}>
-            <input type="email" required id="login" className="fadeIn second" name="login" placeholder="email" />
-            <input type="password" required id="password" className="fadeIn third" name="login" placeholder="password" />
+          <form onSubmit={onLoginHandler}>
+            <input name="email" onChange={changeHandler} value={formData.email} type="email" required id="login" className="fadeIn second"  placeholder="email" />
+            <input name="password" onChange={changeHandler} value={formData.password} type="password" required id="password" className="fadeIn third"  placeholder="password" />
             <br />
-            <input type="submit" className="fadeIn fourth" value="Log In" />
+            <input onClick={onLoginClick} type="submit" className="fadeIn fourth" value="Log In with test credentials" />
           </form>
           <div id="formFooter">
             <Link to={"/signup"}>
