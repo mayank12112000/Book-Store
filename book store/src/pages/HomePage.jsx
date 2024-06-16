@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategoriesAsync } from '../features/categories/categorySlice';
 import Spinner from '../components/Spinner';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 const HomePage = () => {
   const {categories,error,status} = useSelector((state)=>state.categories)
   const dispatch = useDispatch()
@@ -24,7 +25,9 @@ const HomePage = () => {
         <div className='text-area'>
           <h2>Welcome to Bookify!</h2>
           <h1>Find all your knowledge here!</h1>
+          <Link to={'/products'}>
           <button className='btn'>Shop now</button>
+          </Link>
         </div>
       </div>
       </div>
