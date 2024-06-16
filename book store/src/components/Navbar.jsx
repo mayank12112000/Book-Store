@@ -18,13 +18,13 @@ const Navbar = () => {
         <div className="d-flex">
           <ul className="d-flex flex-row p-1 navbar-nav ml-auto">
             <li className="nav-item mx-2">
-              <Link to="/cart" className="nav-link"><ShoppingCartOutlinedIcon/></Link>
+              <Link to="/cart" className="navbar-icons nav-link"><ShoppingCartOutlinedIcon/></Link>
             </li>
             <li className="nav-item mx-2">
-              <Link to="/wishlist" className="nav-link"><FavoriteBorderOutlinedIcon/></Link>
+              <Link to="/wishlist" className="navbar-icons nav-link"><FavoriteBorderOutlinedIcon/></Link>
             </li>
             <li className="nav-item mx-2">
-              <Link to="/login" className="nav-link"><AccountCircleOutlinedIcon/></Link>
+              <Link to="/login" className="navbar-icons nav-link"><AccountCircleOutlinedIcon/></Link>
             </li>
           </ul>
         </div>

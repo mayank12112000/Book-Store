@@ -1,5 +1,8 @@
 .container {
     padding: 0px;
+    .navbar-brand{
+        color: white;
+    }
 }
 
 .input-group {
@@ -22,6 +25,7 @@
 .search-icon {
     background-color: white;
     border-radius: 0.2rem;
+    color: black;
 }
 
 .form-control {
@@ -53,4 +57,7 @@
     top: 0;
     z-index: 2000;
     /* to make sure navbar stays above all elements  */
+}
+.navbar-icons{
+    color: white;
 }
