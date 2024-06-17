@@ -6,7 +6,7 @@ const fakeFetch = (data)=>{
     const internetSpeed = Math.floor((Math.random()*10)+1)
 
     setTimeout(() => {
-            if(internetSpeed>2){
+            if(internetSpeed>-1){ // failing can be acheive
                 resolve(data)
             }else{
                 reject(new Error("internal server error"))
