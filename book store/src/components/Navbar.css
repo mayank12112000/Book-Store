@@ -1,10 +1,26 @@
-.container {
+.navbar-container {
     padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 2rem;
+    width: 100%;
     .navbar-brand{
         color: white;
     }
+    
 }
-
+.home-hamburger{
+    width: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.navbar-toggler{
+    background-color: white;
+    padding: 0;
+    height: 100%;
+}
 .input-group {
     width: 20vw;
 }
@@ -51,6 +67,8 @@
 
 .navbar {
     background-color: #007bb5;
+    padding: 0;
+    width: 100%;
     position: -webkit-sticky;
     /* For Safari */
     position: sticky;

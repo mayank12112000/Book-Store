@@ -16,7 +16,7 @@ const ProductCard = ({book}) => {
       <div className='card-title'>
         <h3 className='card-title-header'>{book.title}</h3>
         <div className="rating">
-          <div className='rated'>3</div>
+          <div className='rated'>{book.rating}</div>
           <StarBorderIcon className='star'/>
         </div>
       </div>

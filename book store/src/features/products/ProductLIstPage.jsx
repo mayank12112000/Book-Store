@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductsAsync } from './productsSlice';
 import ProductCard from "../../components/ProductCard"
 import "./productList.css"
+import Filters from '../../components/OffCanvas/Filters';
 const ProductListPage = () => {
   // fetching products state variables from product slice
   const {books,error,status} = useSelector((state)=>state.products) 
@@ -18,6 +19,7 @@ const ProductListPage = () => {
 
   return (
     <div className='product-list-container'>
+      <Filters/>
       <div className="product-list-header">
         showing all products
       </div>
