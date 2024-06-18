@@ -3,6 +3,9 @@
     margin-top: 3rem;
     position: fixed;
     height: 100%;
+    small{
+        cursor: pointer;;
+    }
     /* padding: 0 2rem; */
 }
 .price-ranges{
