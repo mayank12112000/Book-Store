@@ -1,6 +1,8 @@
 .custom-offcanvas{
     width: 15rem !important ;
     margin-top: 3rem;
+    position: fixed;
+    height: 100%;
     /* padding: 0 2rem; */
 }
 .price-ranges{
@@ -14,4 +16,22 @@
 .offcanvas-body{
     padding: 10px 2rem;
     /* padding: 0; */
+}
+@media (min-width: 992px) {
+    .custom-offcanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      transform: none !important;
+      visibility: visible !important;
+      display: block !important;
+      overflow-y: auto;
+    }
+    .offcanvas-backdrop {
+        display: none !important;
+      }
+}
+.underline{
+    text-decoration: underline;
 }

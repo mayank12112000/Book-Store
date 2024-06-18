@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./filters.css"
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchCategoriesAsync } from '../../features/categories/categorySlice'
 export default function Filters() {
+  const dispatch = useDispatch()
   const { categories } = useSelector((state) => state.categories)
-  console.log(categories)
+  useEffect(()=>{
+    dispatch(fetchCategoriesAsync())
+  },[])
+  console.log("cat",categories)
   return (
-    <div className="offcanvas offcanvas-start custom-offcanvas" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <form className="offcanvas offcanvas-start custom-offcanvas" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
       <div className="offcanvas-header">
         <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">Filters</h5>
-        <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="reset" className='btn underline' data-bs-dismiss="offcanvas" aria-label="Close">Clear</button>
       </div>
       <div className="offcanvas-body " >
         <div className="filter-price">
@@ -35,41 +40,29 @@ export default function Filters() {
 
         <div className="filter-rating">
           <div><b><small>Rating:</small></b></div>
-          <div>
-            <input type="radio" id='1' value={1}/>
-            <label htmlFor="1"><small>1 star & above</small></label>
+          {[1,2,3,4,5].map((rating)=>{
+            return(
+          <div key={rating}>
+            <input name='rating-filter' type="radio" id={rating} value={rating}/>
+            <label name='rating-filter' htmlFor={rating}><small>{rating} star & above</small></label>
           </div>
-          <div>
-            <input type="radio" id='2' value={2}/>
-            <label htmlFor="2"><small>2 star & above</small></label>
-          </div>
-          <div>
-            <input type="radio" id='3' value={3}/>
-            <label htmlFor="3"><small>3 star & above</small></label>
-          </div>
-          <div>
-            <input type="radio" id='4' value={4}/>
-            <label htmlFor="4"><small>4 star & above</small></label>
-          </div>
-          <div>
-            <input type="radio" id='5' value={5}/>
-            <label htmlFor="5"><small>5 star</small></label>
-          </div>
+            )
+          })}
         </div> <br />
-        
+
         <div className='sort-by'>
           <div><small> <b>Sort by:</b></small></div>
           <div>
-            <input type="radio" id='5' value={5}/>
-            <label htmlFor="5"><small>Price-low to high</small></label>
+            <input name="price-sort" type="radio" id='asc' value={5}/>
+            <label name="price-sort" htmlFor="asc"><small>Price-low to high</small></label>
           </div>
           <div>
-            <input type="radio" id='5' value={5}/>
-            <label htmlFor="5"><small>Price-high to low</small></label>
+            <input name="price-sort" type="radio" id='desc' value={5}/>
+            <label name="price-sort" htmlFor="desc"><small>Price-high to low</small></label>
           </div>
 
         </div>
       </div>
-    </div>
+    </form>
   )
 }

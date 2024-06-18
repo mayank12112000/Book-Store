@@ -3,18 +3,21 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import "./ProductCard.css"
+import { Link } from 'react-router-dom';
 const ProductCard = ({book}) => {
 
 
   return (
-   <div className='product-card-box'>
+    <div className='product-card-box'>
+     <Link to={`/product/${book.id}`}>
     <div className='product-img-card'>
       <img className='card-img' src={book.imgLink} alt="ikigai" />
       <span className='wishlist-icon'><FavoriteBorderIcon/></span>
     </div>
+    </Link>
     <div className='info'>
       <div className='card-title'>
-        <h3 className='card-title-header'>{book.title}</h3>
+        <h3  className='card-title-header'>{book.title}</h3>
         <div className="rating">
           <div className='rated'>{book.rating}</div>
           <StarBorderIcon className='star'/>
