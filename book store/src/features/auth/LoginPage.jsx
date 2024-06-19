@@ -13,7 +13,7 @@ export default function LoginPage() {
     console.log("login attempted")
     setTimeout(() => {
       dispatch(login(testCredentials))
-      navigate(-1); // as user login send the page to the previous page
+      navigate("/user_profile"); // as user login send the page to the previous page
     }, 600);
     e.preventDefault()
   }

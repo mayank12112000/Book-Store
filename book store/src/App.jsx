@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import "./App.css"
 import UserProfile from './pages/UserProfile';
+import AddOrEditAddress from './pages/AddOrEditAddress';
 function App() {
   return (
     <Router>
@@ -28,6 +29,7 @@ function App() {
             <Route path="/login" element={<LoginPage/>}/>
             <Route path="/checkout" element={<CheckoutPage/>}/>
             <Route path="/user_profile" element={<UserProfile/>}/>
+            <Route path="/user_profile/address" element={<AddOrEditAddress/>}/>
           </Routes>
       </main>
       </div>

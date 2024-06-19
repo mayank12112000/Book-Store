@@ -2,10 +2,9 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { removeAddress } from '../features/auth/authSlice'
 
-export default function AddressCard({address,mobile}) {
-    const {id,type,houseNo,city,State,pinCode,Country} = address
+export default function AddressCard({address}) {
+    const {id,type,houseNo,city,State,pinCode,Country,mobile} = address
     const dispatch = useDispatch()
-
 
   return (
     <div className='container'>

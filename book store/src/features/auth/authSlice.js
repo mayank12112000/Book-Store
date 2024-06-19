@@ -17,10 +17,13 @@ const authSlice = createSlice({
         },
         removeAddress:(state,action)=>{ //remove address
             state.user.address = state.user.address.filter((address)=>address.id != action.payload)
+        },
+        addAddress:(state,action)=>{
+            state.user.address.push(action.payload)
         }
     },
    
 })
 
 export default authSlice.reducer
-export const {logout,login,removeAddress} = authSlice.actions
+export const {logout,login,removeAddress,addAddress} = authSlice.actions
