@@ -12,12 +12,15 @@ const authSlice = createSlice({
         logout:(state)=>{
             state.user = null; // logout reducer 
         },
-        login:(state,action)=>{
+        login:(state,action)=>{ //login user
             state.user = action.payload;
+        },
+        removeAddress:(state,action)=>{ //remove address
+            state.user.address = state.user.address.filter((address)=>address.id != action.payload)
         }
     },
    
 })
 
 export default authSlice.reducer
-export const {logout,login} = authSlice.actions
+export const {logout,login,removeAddress} = authSlice.actions
