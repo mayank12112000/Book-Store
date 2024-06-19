@@ -14,7 +14,7 @@ export default function AddressDetails({ user }) {
             {address && address.map((address) => (
                 <AddressCard key={address.id} address={address} />
             ))}
-            <Link to={"address"}>
+            <Link to={`address/`}>
             <button className='btn btn-primary'><b>+ Add address</b></button>
             </Link>
         </div>

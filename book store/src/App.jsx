@@ -30,6 +30,7 @@ function App() {
             <Route path="/checkout" element={<CheckoutPage/>}/>
             <Route path="/user_profile" element={<UserProfile/>}/>
             <Route path="/user_profile/address" element={<AddOrEditAddress/>}/>
+            <Route path="/user_profile/address/:addressId" element={<AddOrEditAddress/>}/>
           </Routes>
       </main>
       </div>
