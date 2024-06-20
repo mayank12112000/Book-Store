@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import ProductListPage from './features/products/ProductLIstPage';
+import ProductListPage from './pages/ProductLIstPage';
 import ProductDetailPage from './features/products/ProductDetailPage';
 import CartPage from './features/cart/CartPage';
 import WishlistPage from './features/wishlist/WishlistPage';
