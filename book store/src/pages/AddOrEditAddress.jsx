@@ -1,16 +1,19 @@
 import { nanoid } from '@reduxjs/toolkit'
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import testCredentials from '../features/auth/testCredentials'
 import { useDispatch, useSelector } from 'react-redux'
-import { addAddress } from '../features/auth/authSlice'
+import { addAddress, editAddress } from '../features/auth/authSlice'
 import addressTestCredentials from "../features/auth/addressTestCredentials";
 
 export default function AddOrEditAddress() {
     const [formData,setFormData] = useState({id:nanoid(),type:"",houseNo:"",city:"",State:"",Country:"",pinCode:"",mobile:""})
+    const [action,setAction] = useState("add")
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {user} = useSelector((state)=>state.user)
+    const {addressId} = useParams();
+
     const changeHandler=(e)=>{
         const {name,value} = e.target
         setFormData((predata)=>{
@@ -20,12 +23,21 @@ export default function AddOrEditAddress() {
 
     const submitHandler=(e)=>{
         e.preventDefault()
-        dispatch(addAddress(formData))
-        navigate("/user_profile")
+        if(action==="add"){
+            dispatch(addAddress(formData))
+        }else{
+            dispatch(editAddress(formData))
+        }
+        navigate(-1)
     }
     useEffect(()=>{
         if(!user){
             navigate("/login")
+        }
+        // if address id is present then edit the details otherwise add the details
+        else if(addressId){ // present in else if so that if user is not logged in it should not throw error
+            setFormData(user.address.find((address)=>(address.id).toString()===addressId))
+            setAction("edit")
         }
     },[user])
 
@@ -47,7 +59,7 @@ export default function AddOrEditAddress() {
           <input required onChange={changeHandler} value={formData.mobile} type="text" className="fadeIn third" name="mobile" placeholder="Enter Mobile number" />
           <br />
           <div className="button-group container d-flex flex-row justify-content-around" >
-          <button type='submit' className="btn btn-outline-primary" >Add</button>
+          <button type='submit' className="btn btn-outline-primary">{action==="add"?"Add":"Edit"}</button>
           <button onClick={()=>navigate(-1)} type='button' className="btn btn-outline-danger" >Cancel</button>
           <button onClick={fillDummyData} type="button" className="btn btn-outline-warning">Fill with dummy data</button>
           </div>

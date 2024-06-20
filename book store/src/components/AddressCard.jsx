@@ -11,7 +11,7 @@ export default function AddressCard({address}) {
     <div className='container'>
                 <div className='user-details'>
                     <h4><small>{type}:</small></h4>
-                    <p>{`${houseNo},${city},${State},${Country},${pinCode}`}</p>
+                    <p>{`${houseNo}, ${city}, ${State}, ${Country}, ${pinCode}`}</p>
                     <p>Phone number: {mobile}</p>
                     <Link to={`/user_profile/address/${id}`}>
                     <button className='btn btn-outline-secondary'> <b>edit</b></button>
