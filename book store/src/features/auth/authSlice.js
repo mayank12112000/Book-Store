@@ -21,7 +21,8 @@ const authSlice = createSlice({
         addAddress:(state,action)=>{
             state.user.address.push(action.payload)
         },editAddress:(state,action)=>{
-            state.user.address = state.user.address.map((address)=>{return address.id===action.payload.id? {...action.payload}:address})
+            const {addressId,formData}=action.payload
+            state.user.address = state.user.address.map((address)=>{return (address.id).toString()===addressId? {...formData,id:addressId}:address})
         }
     }
    

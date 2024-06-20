@@ -26,7 +26,7 @@ export default function AddOrEditAddress() {
         if(action==="add"){
             dispatch(addAddress(formData))
         }else{
-            dispatch(editAddress(formData))
+            dispatch(editAddress({addressId,formData}))
         }
         navigate(-1)
     }
