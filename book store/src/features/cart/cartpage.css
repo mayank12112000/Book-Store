@@ -15,4 +15,34 @@
 }
 .pricing{
     border: 2px solid black;
+    /* padding: 1rem; */
+    p{
+        margin: 0;
+    }
+    padding-top: 2px;
+
+}
+.coupon{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+
+}
+.text-center{
+    border-top: 1px  solid gray;
+    border-bottom: 1px solid gray;
+}
+
+.price-category {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.price-totalAmt{
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px  solid gray;
+    border-bottom: 1px solid gray;
 }

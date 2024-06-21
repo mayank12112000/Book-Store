@@ -53,3 +53,18 @@
 .buttons .btn {
     width: 100%;
 }
+.pricing{
+    display: flex;
+    flex-direction: column;
+    grid-gap: 1rem;
+    gap: 1rem;
+    box-shadow: 0 5px 15px rgba(90, 90, 90, .35);
+    padding: 2rem;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-bottom: 2rem;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20%;
+}
