@@ -13,6 +13,7 @@ export const fetchFromCartAsync = createAsyncThunk(
     async ()=>{
         try {
             const resp = await cartFetchApi;
+            return resp
             console.log("async thunk fetch cart response:",resp)
         } catch (error) {
             console.log("error from async thunk fetch cart:",error)
@@ -24,8 +25,14 @@ const cartSlice = createSlice({
     name:"cart",
     initialState,
     reducers:{
-        addCart:(state,action)=>{
+        addToCart:(state,action)=>{
             state.cart.push(action.payload)
+        },
+        emptyCart:(state,action)=>{
+            state.cart = []
+        },
+        removeCartItem:(state,action)=>{
+            state.cart = state.cart.filter((item)=>item.id !== action.payload)
         }
     },
     extraReducers:(builder)=>{
@@ -46,4 +53,4 @@ const cartSlice = createSlice({
 })
 
 export default cartSlice.reducer
-export const {addCart} = cartSlice.actions
+export const {addToCart,emptyCart,removeCartItem} = cartSlice.actions

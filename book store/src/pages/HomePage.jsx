@@ -7,12 +7,12 @@ import { fetchCategoriesAsync } from '../features/categories/categorySlice';
 import Spinner from '../components/Spinner';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import { fetchFromCartAsync } from '../features/cart/cartSlice';
 const HomePage = () => {
   const {categories,error,status} = useSelector((state)=>state.categories)
   const dispatch = useDispatch()
   console.log("categories homepage",categories)
   console.log("error",error)
-  console.log("status",status)
 
   useEffect(()=>{
     dispatch(fetchCategoriesAsync())

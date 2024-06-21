@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import "./userProfile.css"
 import ProfileDetails from '../components/ProfileDetails'
 import AddressDetails from '../components/AddressDetails'
+import { emptyCart } from '../features/cart/cartSlice'
 export default function UserProfile() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
     const [showUser, setShowUser] = useState(true)
     const { user } = useSelector((state) => state.user)
     console.log("user found:",user)
     useEffect(() => {
         if (!user) {
             navigate("/login")
+            dispatch(emptyCart())
         }
     }, [user])
     if(user){

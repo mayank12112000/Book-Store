@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import testCredentials from './testCredentials'
 import { useDispatch } from 'react-redux'
 import { login } from './authSlice'
+import { fetchFromCartAsync } from '../cart/cartSlice'
 export default function LoginPage() {
   const navigate = useNavigate()
   const [formData,setFormData] = useState({email:"",password:""})
@@ -13,6 +14,7 @@ export default function LoginPage() {
     console.log("login attempted")
     setTimeout(() => {
       dispatch(login(testCredentials))
+      dispatch(fetchFromCartAsync())
       navigate("/user_profile"); // as user login send the page to the previous page
     }, 600);
     e.preventDefault()

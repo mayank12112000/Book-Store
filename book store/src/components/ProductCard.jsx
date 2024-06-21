@@ -3,9 +3,20 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import "./ProductCard.css"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../features/cart/cartSlice';
 const ProductCard = ({book}) => {
-
+  const dispatch = useDispatch()
+  const {user} = useSelector((state)=>state.user)
+  const navigate = useNavigate()
+  const addToCartHandler=()=>{
+    if(user){
+      dispatch(addToCart({id:book.id,quantity:1})) 
+    }else{
+      navigate("/login")
+    }
+  }
 
   return (
     <div className='product-card-box'>
@@ -29,7 +40,7 @@ const ProductCard = ({book}) => {
         <p className='actual-price'>{book.price}</p>
         <p className='price-percentage'>{`(${book.discountPercentage}% off)`}</p>
       </div>
-      <button className='btn default add-cart'>
+      <button onClick={addToCartHandler} className='btn default add-cart'>
         <ShoppingCartOutlinedIcon/>Add to cart
       </button>
     </div>

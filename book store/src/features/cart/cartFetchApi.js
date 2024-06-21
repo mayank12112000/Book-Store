@@ -1,6 +1,6 @@
 import fakeFetch from "../../utils/fakeFetchdb"
 
-const cart = [{productId:123,quantity:1,price:45}] // suppose we have empty cart in db
+const cart = [] // suppose we have empty cart in db
 
 export default fakeFetch(cart)
 .then((response)=>{

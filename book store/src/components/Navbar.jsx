@@ -5,13 +5,16 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
+import { useSelector } from "react-redux";
 const Navbar = () => {
-  const {pathname} = useLocation()
+  const {cart} = useSelector((state)=>state.cart)
+
+  const { pathname } = useLocation()
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="navbar-container">
         <div className="home-hamburger">
-          {pathname==="/products" && <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-expanded="false" aria-label="Toggle navigation">
+          {pathname === "/products" && <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>}
           <Link to="/" className="navbar-brand"><b>Bookify</b></Link>
@@ -24,10 +27,24 @@ const Navbar = () => {
         <div className="d-flex">
           <ul className="d-flex flex-row p-1 navbar-nav ml-auto">
             <li className="nav-item mx-2">
-              <Link to="/cart" className="navbar-icons nav-link"><ShoppingCartOutlinedIcon /></Link>
+              <Link to="/cart" className="navbar-icons nav-link">
+                <div className="position-relative">
+                  <ShoppingCartOutlinedIcon />
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {cart.length>0 && cart.length}
+                  </span>
+                </div>
+              </Link>
             </li>
             <li className="nav-item mx-2">
-              <Link to="/wishlist" className="navbar-icons nav-link"><FavoriteBorderOutlinedIcon /></Link>
+              <Link to="/wishlist" className="navbar-icons nav-link">
+                <div className="position-relative">
+                  <FavoriteBorderOutlinedIcon />
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    9
+                  </span>
+                </div>
+              </Link>
             </li>
             <li className="nav-item mx-2">
               <Link to="/user_profile" className="navbar-icons nav-link"><AccountCircleOutlinedIcon /></Link>
@@ -35,7 +52,6 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      {/* <AccountCircleOutlinedIcon /> */}
     </nav>
   );
 };
