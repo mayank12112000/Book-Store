@@ -8,8 +8,8 @@ export default function CartProduct() {
                 <img className='card-image' src="https://m.media-amazon.com/images/M/MV5BMTkxNTk1ODcxNl5BMl5BanBnXkFtZTcwMDI1OTMzOQ@@._V1_FMjpg_UX1000_.jpg" alt="" />
             </div>
             <div className="details col-6">
-                <h3>do epic shit</h3>
-                <p>ankur</p>
+                <h3> <small>do epic shit</small></h3>
+                <p> <small>ankur</small></p>
                 <p><b>213 1534 45% off</b></p>
             <div className="quantity">
                 <div type="button" className="btn btn-outline-secondary minus">-</div>

@@ -20,12 +20,16 @@ export default function CartPage() {
       <div className='cart-container'>
         <div class="container text-center product-cart-container">
           <div class="row">
-            <div class="col-6 cart-boxes">.col-6 .col-sm-3</div>
-            <div class="col-6 cart-boxes">.col-6 .col-sm-3</div>
+            <div class="col-6 scrollable cart-boxes">
+              <CartProduct/>
+              <CartProduct/>
+              <CartProduct/>
+              <CartProduct/>
+              </div>
+            <div class="col-6 pricing cart-boxes">.col-6 .col-sm-3</div>
           </div>
         </div>
       </div>
-      <CartProduct/>
     </div>
   )
 }
