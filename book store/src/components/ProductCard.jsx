@@ -13,6 +13,7 @@ const ProductCard = ({book}) => {
   const addToCartHandler=()=>{
     if(user){
       dispatch(addToCart({id:book.id,quantity:1})) 
+      // we will not include price of the book because it can change with time 
     }else{
       navigate("/login")
     }

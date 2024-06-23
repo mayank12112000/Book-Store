@@ -9,14 +9,15 @@ export default function CartPage() {
   const {cart} = useSelector((state)=>state.cart)
   const { user } = useSelector((state) => state.user)
   const {books} = useSelector((state)=>state.products)
-
+  const dispatch = useDispatch()
   // fetch book details using cart item id
   const cartBooks = cart.map((cartItem)=> {
     return {...(books.find((book)=>book.id === cartItem.id)),quantity:cartItem.quantity}
   })
-  console.log(cartBooks)
-  console.log(books)
-  const dispatch = useDispatch()
+
+  const cartPrice = cartBooks.reduce((total,book)=> total+(book.discountedPrice * book.quantity),0)
+  console.log(cartPrice)
+  console.log("cart books:",cartBooks)
   console.log(cart)
 
   // const cartItems = 
