@@ -4,16 +4,17 @@ const initialState = {
     status:"idel", // idle loading succeeded failed
     error:null
 }
-
 const authSlice = createSlice({
     name:"auth",
     initialState,
     reducers:{
         logout:(state)=>{
             state.user = null; // logout reducer 
+            localStorage.removeItem("user")
         },
         login:(state,action)=>{ //login user
             state.user = action.payload;
+            localStorage.setItem("user",JSON.stringify(action.payload))
         },
         removeAddress:(state,action)=>{ //remove address
             state.user.address = state.user.address.filter((address)=>address.id != action.payload)

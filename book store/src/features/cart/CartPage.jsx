@@ -29,6 +29,10 @@ export default function CartPage() {
       navigate("/login")
     }
   }, [user])
+
+  if(cartBooks <1){
+    return <h1>No items in your cart 😞😞</h1>
+  }else
   return (
     <div className='cart-page'>
       <div className='cart-container'>
