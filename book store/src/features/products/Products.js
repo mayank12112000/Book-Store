@@ -10,7 +10,9 @@ const books = [
     "price": 499,
     "discountedPrice": 399,
     "discountPercentage": 20,
-    rating:4
+    rating: 4,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 2,
@@ -23,7 +25,9 @@ const books = [
     "price": 799,
     "discountedPrice": 599,
     "discountPercentage": 25,
-    rating:4
+    rating: 4,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 3,
@@ -36,7 +40,9 @@ const books = [
     "price": 699,
     "discountedPrice": 559,
     "discountPercentage": 20,
-    rating:3
+    rating: 3,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 4,
@@ -49,7 +55,9 @@ const books = [
     "price": 499,
     "discountedPrice": 349,
     "discountPercentage": 30,
-    rating:2
+    rating: 2,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 5,
@@ -62,7 +70,9 @@ const books = [
     "price": 899,
     "discountedPrice": 719,
     "discountPercentage": 20,
-    rating:5
+    rating: 5,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 6,
@@ -75,7 +85,9 @@ const books = [
     "price": 599,
     "discountedPrice": 479,
     "discountPercentage": 20,
-    rating:4
+    rating: 4,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 7,
@@ -88,7 +100,9 @@ const books = [
     "price": 649,
     "discountedPrice": 519,
     "discountPercentage": 20,
-    rating:3
+    rating: 3,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 8,
@@ -101,7 +115,9 @@ const books = [
     "price": 699,
     "discountedPrice": 559,
     "discountPercentage": 20,
-    rating:1
+    rating: 1,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 9,
@@ -114,7 +130,9 @@ const books = [
     "price": 799,
     "discountedPrice": 639,
     "discountPercentage": 20,
-    rating:2
+    rating: 2,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 10,
@@ -127,7 +145,9 @@ const books = [
     "price": 499,
     "discountedPrice": 349,
     "discountPercentage": 30,
-    rating:2
+    rating: 2,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 11,
@@ -140,7 +160,9 @@ const books = [
     "price": 899,
     "discountedPrice": 719,
     "discountPercentage": 20,
-    rating:3
+    rating: 3,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 12,
@@ -153,7 +175,9 @@ const books = [
     "price": 599,
     "discountedPrice": 479,
     "discountPercentage": 20,
-    rating:3
+    rating: 3,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 13,
@@ -166,7 +190,9 @@ const books = [
     "price": 649,
     "discountedPrice": 519,
     "discountPercentage": 20,
-    rating:4
+    rating: 4,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 14,
@@ -179,7 +205,9 @@ const books = [
     "price": 699,
     "discountedPrice": 559,
     "discountPercentage": 20,
-    rating:4
+    rating: 4,
+    inCart: false,
+    cartQuantity: 0
   },
   {
     "id": 15,
@@ -192,7 +220,9 @@ const books = [
     "price": 799,
     "discountedPrice": 639,
     "discountPercentage": 20,
-    rating:4
+    rating: 4,
+    inCart: false,
+    cartQuantity: 0
   }
 ]
 export default books
