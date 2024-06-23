@@ -9,6 +9,8 @@ import { addToCart } from '../features/cart/cartSlice';
 const ProductCard = ({book}) => {
   const dispatch = useDispatch()
   const {user} = useSelector((state)=>state.user)
+  const {cart} = useSelector((state)=>state.cart)
+  console.log("cart",cart)
   const navigate = useNavigate()
   const addToCartHandler=()=>{
     if(user){
@@ -41,9 +43,13 @@ const ProductCard = ({book}) => {
         <p className='actual-price'>{book.price}</p>
         <p className='price-percentage'>{`(${book.discountPercentage}% off)`}</p>
       </div>
-      <button onClick={addToCartHandler} className='btn default add-cart'>
+      {cart.find((cartItem)=>cartItem.id === book.id)?
+              <button onClick={()=>navigate("/cart")} className='btn default add-cart'>
+                <ShoppingCartOutlinedIcon/>Go to cart
+              </button>:
+        <button onClick={addToCartHandler} className='btn default add-cart'>
         <ShoppingCartOutlinedIcon/>Add to cart
-      </button>
+      </button>}
     </div>
 
    </div>
