@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import ProductListPage from './pages/ProductLIstPage';
@@ -13,7 +13,18 @@ import Footer from './components/Footer';
 import "./App.css"
 import UserProfile from './pages/UserProfile';
 import AddOrEditAddress from './pages/AddOrEditAddress';
+import { useDispatch } from 'react-redux';
+import { setUser } from './features/auth/authSlice';
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      dispatch(setUser(JSON.parse(storedUser)));
+    }
+  }, [dispatch]);
+
   return (
     <Router>
       <div className='wrapper'>

@@ -16,7 +16,7 @@ export default function UserProfile() {
             navigate("/login")
             dispatch(emptyCart())
         }
-    }, [dispatch])
+    }, [dispatch,user])
     if(user){
         return (
             <div className='user-profile-container'>

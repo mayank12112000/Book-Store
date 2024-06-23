@@ -24,10 +24,13 @@ const authSlice = createSlice({
         },editAddress:(state,action)=>{
             const {addressId,formData}=action.payload
             state.user.address = state.user.address.map((address)=>{return (address.id).toString()===addressId? {...formData,id:addressId}:address})
+        },
+        setUser:(state,action)=>{
+            state.user = action.payload
         }
     }
    
 })
 
 export default authSlice.reducer
-export const {logout,login,removeAddress,addAddress,editAddress} = authSlice.actions
+export const {logout,login,removeAddress,addAddress,editAddress,setUser} = authSlice.actions

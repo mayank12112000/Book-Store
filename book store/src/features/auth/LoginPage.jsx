@@ -2,13 +2,19 @@ import React, { useEffect, useState } from 'react'
 import "./loginpage.css"
 import { Link, useNavigate } from 'react-router-dom'
 import testCredentials from './testCredentials'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { login } from './authSlice'
 import { fetchFromCartAsync } from '../cart/cartSlice'
 export default function LoginPage() {
   const navigate = useNavigate()
   const [formData,setFormData] = useState({email:"",password:""})
   const dispatch = useDispatch()
+  const {user} = useSelector((state)=>state.user)
+  useEffect(()=>{
+    if(user){
+      navigate("/user_profile")
+    }
+  },[user])
   // login submit handler
   const onLoginHandler = (e) => {
     console.log("login attempted")
