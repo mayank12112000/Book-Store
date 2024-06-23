@@ -33,6 +33,10 @@ const cartSlice = createSlice({
         },
         removeCartItem:(state,action)=>{
             state.cart = state.cart.filter((item)=>item.id !== action.payload)
+        },
+        updateQuantity:(state,action)=>{
+            const {id,quant} = action.payload
+            state.cart = state.cart.map((item)=>item.id === id?{...item,quantity:item.quantity + (quant)}:{...item})
         }
     },
     extraReducers:(builder)=>{
@@ -53,4 +57,4 @@ const cartSlice = createSlice({
 })
 
 export default cartSlice.reducer
-export const {addToCart,emptyCart,removeCartItem} = cartSlice.actions
+export const {addToCart,emptyCart,removeCartItem,updateQuantity} = cartSlice.actions

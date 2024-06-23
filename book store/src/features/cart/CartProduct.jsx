@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./cartProduct.css"
 import { useDispatch } from 'react-redux'
-import { removeCartItem } from './cartSlice'
+import { removeCartItem, updateQuantity } from './cartSlice'
 export default function CartProduct({ book }) {
     const dispatch = useDispatch()
+    const [quantity,setQuantity] = useState(book.quantity)
     const removeFromCartHandler=()=>{
         dispatch(removeCartItem(book.id))
     }
@@ -23,9 +24,9 @@ export default function CartProduct({ book }) {
                         <p className='price-percentage'>{`(${book.discountPercentage}% off)`}</p>
                     </div>
                     <div className="quantity">
-                        <div type="button" className="btn btn-outline-secondary minus">-</div>
-                        <div className="btn number">1</div>
-                        <div type="button" className="btn btn-outline-secondary plus">+</div>
+                        <button disabled={book.quantity === 1} onClick={()=>dispatch(updateQuantity({id:book.id,quant:-1}))} className={`btn btn-${book.quantity===1?"secondary":"primary"} minus`}>-</button>
+                        <div className="btn number">{book.quantity}</div>
+                        <button onClick={()=>dispatch(updateQuantity({id:book.id,quant:1}))} className="btn btn-primary plus">+</button>
                     </div>
                 </div>
                 <div className="buttons d-flex justify-content-between col-12 row">

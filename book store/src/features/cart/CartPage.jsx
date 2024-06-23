@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { fetchFromCartAsync } from './cartSlice'
@@ -10,15 +10,17 @@ export default function CartPage() {
   const { user } = useSelector((state) => state.user)
   const {books} = useSelector((state)=>state.products)
   const dispatch = useDispatch()
+  const [couponDiscountPercent,setCouponDiscoutPercent] = useState(0)
   // fetch book details using cart item id
   const cartBooks = cart.map((cartItem)=> {
     return {...(books.find((book)=>book.id === cartItem.id)),quantity:cartItem.quantity}
   })
 
+  const cartMrp = cartBooks.reduce((mrp,book)=>mrp+(book.price * book.quantity),0)
   const cartPrice = cartBooks.reduce((total,book)=> total+(book.discountedPrice * book.quantity),0)
-  console.log(cartPrice)
+  const couponDiscount = Math.floor(cartPrice * (couponDiscountPercent/100))
+  const netPrice = cartPrice - couponDiscount
   console.log("cart books:",cartBooks)
-  console.log(cart)
 
   // const cartItems = 
   const navigate = useNavigate()
@@ -43,12 +45,12 @@ export default function CartPage() {
               <h4 className="text-center">PRICE DETAILS</h4>
               <div className=" price-calculate">
                   <div className='price-category items-price'>
-                    <span>Price (4 items)</span>
-                    <span>₹ 2889</span>
+                    <span>{`Price (${cart.reduce((totalItems,cartItem)=>totalItems + cartItem.quantity,0)} items)`}</span>
+                    <span>₹ {cartMrp}</span>
                   </div>
                   <div className='price-category discount'>
                     <span>Discount</span>
-                    <span>-₹ 1980</span>
+                    <span>-₹ {cartMrp-cartPrice}</span>
                   </div>
                   <div className='price-category delivery-charges'>
                     <span>Delivery Charges</span>
@@ -56,11 +58,11 @@ export default function CartPage() {
                   </div>
                   <div className='price-category coupon-discount'>
                     <span>Coupon Discount</span>
-                    <span>₹ 0.00</span>
+                    <span>₹ {couponDiscount}</span>
                   </div>
               </div>
               <div className="price-totalAmt">
-                <h4>Total Amount</h4><h4>₹ 909.00</h4>
+                <h4>Total Amount</h4><h4>₹ {netPrice}</h4>
               </div>
               <p className="save-msg">You will save ₹ 1980.00 on this order</p>
               <button className="btn btn btn default add-cart">

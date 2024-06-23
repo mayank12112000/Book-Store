@@ -10,7 +10,6 @@ const ProductCard = ({book}) => {
   const dispatch = useDispatch()
   const {user} = useSelector((state)=>state.user)
   const {cart} = useSelector((state)=>state.cart)
-  console.log("cart",cart)
   const navigate = useNavigate()
   const addToCartHandler=()=>{
     if(user){
