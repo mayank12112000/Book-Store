@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import "./cartProduct.css"
 import { useDispatch } from 'react-redux'
-import { removeCartItem, updateQuantity } from './cartSlice'
+import { addToCart, removeCartItem, updateQuantity } from './cartSlice'
+import { addToWishlist } from '../wishlist/wishlistSlice'
 export default function CartProduct({ book }) {
     const dispatch = useDispatch()
     const [quantity,setQuantity] = useState(book.quantity)
     const removeFromCartHandler=()=>{
         dispatch(removeCartItem(book.id))
     }
-
+    const addToWishListHandler=()=>{
+        dispatch(addToWishlist({id:book.id}))
+        dispatch(removeCartItem(book.id))
+    }
     return (
         <div className='cart-product'>
             <div className="image-details row">
@@ -35,7 +39,7 @@ export default function CartProduct({ book }) {
                         <button onClick={removeFromCartHandler} className='btn btn-outline-primary'>Remove</button>
                     </div>
                     <div className="col-6 d-flex justify-content-center">
-                        <button className='btn btn-outline-warning'>Add to wishlist</button>
+                        <button onClick={addToWishListHandler} className='btn btn-outline-warning'>Add to wishlist</button>
                     </div>
                 </div>
             </div>

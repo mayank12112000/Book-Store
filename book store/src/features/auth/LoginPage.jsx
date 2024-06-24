@@ -21,7 +21,7 @@ export default function LoginPage() {
     setTimeout(() => {
       dispatch(login(testCredentials))
       dispatch(fetchFromCartAsync())
-      navigate("/user_profile"); // as user login send the page to the previous page
+      navigate(-1); // as user login send the page to the previous page
     }, 600);
     e.preventDefault()
   }

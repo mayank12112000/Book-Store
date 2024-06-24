@@ -3,6 +3,7 @@
 }
 .product-img-card {
     display: flex;
+    justify-content: space-around;
 }
 .card{
     width: 15rem;

@@ -24,8 +24,12 @@ const wishlistSlice = createSlice({
     name:"wishList",
     initialState,
     reducers:{
-        testReducer:(state,action)=>{
-            console.log(state.wishList, action.payload)
+        addToWishlist:(state,action)=>{
+            // console.log("reducer payload",action.payload)
+            state.wishList.push(action.payload)
+        },
+        removerFromWishlist:(state,action)=>{
+            state.wishList = state.wishList.filter((book)=>book.id !== action.payload)
         }
     },
     extraReducers:(builder)=>{
@@ -47,4 +51,4 @@ const wishlistSlice = createSlice({
 })
 
 export default wishlistSlice.reducer
-export const {testReducerWishlist} = wishlistSlice.actions
+export const {testReducerWishlist,addToWishlist,removerFromWishlist} = wishlistSlice.actions

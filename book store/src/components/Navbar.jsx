@@ -8,7 +8,8 @@ import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import { useSelector } from "react-redux";
 const Navbar = () => {
   const {cart} = useSelector((state)=>state.cart)
-
+  const {wishList} = useSelector((state)=>state.wishlist)
+  console.log("wishlist state:",wishList)
   const { pathname } = useLocation()
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
@@ -41,7 +42,7 @@ const Navbar = () => {
                 <div className="position-relative">
                   <FavoriteBorderOutlinedIcon />
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                    9
+                    {wishList.length>0 && wishList.length}
                   </span>
                 </div>
               </Link>

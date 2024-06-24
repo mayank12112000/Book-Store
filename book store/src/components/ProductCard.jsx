@@ -6,11 +6,21 @@ import "./ProductCard.css"
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../features/cart/cartSlice';
+import { addToWishlist } from '../features/wishlist/wishlistSlice';
 const ProductCard = ({book}) => {
+  console.log(book)
   const dispatch = useDispatch()
   const {user} = useSelector((state)=>state.user)
   const {cart} = useSelector((state)=>state.cart)
   const navigate = useNavigate()
+
+  const addTOWishList = ()=>{
+    if(user){
+      dispatch(addToWishlist({id:book.id}))
+    }else{
+      navigate("/login")
+    }
+  }
   const addToCartHandler=()=>{
     if(user){
       dispatch(addToCart({id:book.id,quantity:1})) 
@@ -22,12 +32,12 @@ const ProductCard = ({book}) => {
 
   return (
     <div className='product-card-box'>
-     <Link to={`/product/${book.id}`}>
     <div className='product-img-card'>
+     <Link to={`/product/${book.id}`}>
       <img className='card-img' src={book.imgLink} alt="ikigai" />
-      <span className='wishlist-icon'><FavoriteBorderIcon/></span>
-    </div>
     </Link>
+      <span  onClick={addTOWishList} className='wishlist-icon btn-primary'><FavoriteBorderIcon/></span>
+    </div>
     <div className='info'>
       <div className='card-title'>
         <h3  className='card-title-header'>{book.title}</h3>
