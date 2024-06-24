@@ -1,7 +1,6 @@
 import { nanoid } from '@reduxjs/toolkit'
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
-import testCredentials from '../features/auth/testCredentials'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { addAddress, editAddress } from '../features/auth/authSlice'
 import addressTestCredentials from "../features/auth/addressTestCredentials";

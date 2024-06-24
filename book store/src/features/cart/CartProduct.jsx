@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "./cartProduct.css"
 import { useDispatch } from 'react-redux'
-import { addToCart, removeCartItem, updateQuantity } from './cartSlice'
+import { removeCartItem, updateQuantity } from './cartSlice'
 import { addToWishlist } from '../wishlist/wishlistSlice'
 export default function CartProduct({ book }) {
     const dispatch = useDispatch()
-    const [quantity,setQuantity] = useState(book.quantity)
     const removeFromCartHandler=()=>{
         dispatch(removeCartItem(book.id))
     }

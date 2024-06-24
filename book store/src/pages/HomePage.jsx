@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
 import "./homePage.css"
 import FeaturedCategory from '../components/FeaturedCategory';
-import categoriesApi from '../features/categories/categoriesApi';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCategoriesAsync } from '../features/categories/categorySlice';
 import Spinner from '../components/Spinner';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
-import { fetchFromCartAsync } from '../features/cart/cartSlice';
 const HomePage = () => {
   const {categories,error,status} = useSelector((state)=>state.categories)
   const dispatch = useDispatch()
