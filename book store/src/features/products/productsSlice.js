@@ -4,7 +4,10 @@ import productsApi from "./productsApi";
 const initialState = {
     books:[],
     status:"idle",
-    error:null
+    error:null,
+    categoryFilter:null,
+    ratingFilter:null,
+    sortBy:null
 }
 
 export const fetchProductsAsync = createAsyncThunk(
