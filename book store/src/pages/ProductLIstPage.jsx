@@ -36,16 +36,16 @@ const ProductListPage = () => {
   if(sortBy){
     filteredBooks = [...filteredBooks].sort((book1,book2)=>  ((sortBy)*book1.discountedPrice) - ((sortBy)*book2.discountedPrice))
   }
-
+  
   return (
     <div className='product-list-container'>
       <Filters/>
       <div className="product-list-header">
-        showing all products
+        {/* showing all products */}
       </div>
+      {filteredBooks.length === 0 && <h1>Sorry , Products are not available for chosen filter.</h1>}
       <div className="responsive-grid">
       
-      {filteredBooks.length === 0 && <Loader/>}
       {/* {status === "failed" && <Loader/>} */}
       {status === "succeeded" && (filteredBooks.map((book)=><div key={book.id} className='card'><ProductCard book={book}/></div>))} 
       {/* // if retrieval of products is successful we will map all products  */}
