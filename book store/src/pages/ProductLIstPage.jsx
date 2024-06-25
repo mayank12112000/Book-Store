@@ -22,7 +22,6 @@ const ProductListPage = () => {
     dispatch(fetchProductsAsync()) // hitting to the api to fetch products as the components mounts
   },[dispatch,categoryFilter,ratingFilter,sortBy,priceFilter])
 
-
   if(categoryFilter.length>0){
     filteredBooks= filteredBooks.filter((book)=>categoryFilter.includes(book.category))
   }
@@ -38,8 +37,7 @@ const ProductListPage = () => {
   }
   if(searchBook.length>0){
     const regex = new RegExp(`${searchBook}`,"gi")
-    console.log(regex)
-   filteredBooks = [...filteredBooks].filter((book)=>regex.test(book.title) || regex.test(book.author)) 
+   filteredBooks = [...filteredBooks].filter((book)=>(book.title).match(regex) || book.author.match(regex)) 
   }
   
   return (
@@ -50,7 +48,6 @@ const ProductListPage = () => {
       </div>
       {filteredBooks.length === 0 && <h1>Sorry , No products available.</h1>}
       <div className="responsive-grid">
-      
       {/* {status === "Loading" && <Loader/>} */}
       {status === "succeeded" && (filteredBooks.map((book)=><div key={book.id} className='card'><ProductCard book={book}/></div>))} 
       {/* // if retrieval of products is successful we will map all products  */}
