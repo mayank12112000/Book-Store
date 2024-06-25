@@ -8,7 +8,8 @@ const initialState = {
     categoryFilter:[],
     ratingFilter:null,
     sortBy:null,
-    priceFilter:null
+    priceFilter:null,
+    searchBook:""
 }
 
 export const fetchProductsAsync = createAsyncThunk(
@@ -40,6 +41,9 @@ const productSlice=createSlice({
         },
         setPriceFilter:(state,action)=>{
             state.priceFilter = action.payload
+        },
+        setSearchBy:(state,action)=>{
+            state.searchBook = action.payload
         }
     },
     extraReducers:(builder)=>{
@@ -60,4 +64,4 @@ const productSlice=createSlice({
 })
 
 export default productSlice.reducer
-export const {testReducer,setFilterByCategory,setRatingFilter,setPriceFilter,setSortBy} = productSlice.actions
+export const {setSearchBy,testReducer,setFilterByCategory,setRatingFilter,setPriceFilter,setSortBy} = productSlice.actions

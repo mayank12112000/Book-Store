@@ -5,12 +5,19 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchBy } from "../features/products/productsSlice";
 const Navbar = () => {
   const {cart} = useSelector((state)=>state.cart)
   const {wishList} = useSelector((state)=>state.wishlist)
+  const {searchBook} = useSelector((state)=>state.products)
+  console.log(searchBook)
+  const dispatch = useDispatch()
   console.log("wishlist state:",wishList)
   const { pathname } = useLocation()
+  const searchHandler = (e)=>{
+    dispatch(setSearchBy(e.target.value))
+  }
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="navbar-container">
@@ -23,7 +30,7 @@ const Navbar = () => {
 
         <div className="search-bar d-none d-md-block" >
           <span className=" search-icon"><SearchOutlinedIcon /></span>
-          <input className="search-input" placeholder="search book" type="text" />
+          <input onChange={searchHandler} value={searchBook} className="search-input" placeholder="search book" type="text" />
         </div>
         <div className="d-flex">
           <ul className="d-flex flex-row p-1 navbar-nav ml-auto">

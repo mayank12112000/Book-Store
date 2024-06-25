@@ -7,7 +7,7 @@ import "./productList.css"
 import Filters from '../components/OffCanvas/Filters';
 const ProductListPage = () => {
   // fetching products state variables from product slice
-  const {books,error,status,categoryFilter,ratingFilter,sortBy,priceFilter} = useSelector((state)=>state.products) 
+  const {books,error,status,categoryFilter,ratingFilter,sortBy,priceFilter,searchBook} = useSelector((state)=>state.products) 
   const dispatch = useDispatch()
   console.log("bookslice books:",books)
   console.log("bookslice state",status)
@@ -36,6 +36,11 @@ const ProductListPage = () => {
   if(sortBy){
     filteredBooks = [...filteredBooks].sort((book1,book2)=>  ((sortBy)*book1.discountedPrice) - ((sortBy)*book2.discountedPrice))
   }
+  if(searchBook.length>0){
+    const regex = new RegExp(`${searchBook}`,"gi")
+    console.log(regex)
+   filteredBooks = [...filteredBooks].filter((book)=>regex.test(book.title) || regex.test(book.author)) 
+  }
   
   return (
     <div className='product-list-container'>
@@ -43,10 +48,10 @@ const ProductListPage = () => {
       <div className="product-list-header">
         {/* showing all products */}
       </div>
-      {filteredBooks.length === 0 && <h1>Sorry , Products are not available for chosen filter.</h1>}
+      {filteredBooks.length === 0 && <h1>Sorry , No products available.</h1>}
       <div className="responsive-grid">
       
-      {/* {status === "failed" && <Loader/>} */}
+      {/* {status === "Loading" && <Loader/>} */}
       {status === "succeeded" && (filteredBooks.map((book)=><div key={book.id} className='card'><ProductCard book={book}/></div>))} 
       {/* // if retrieval of products is successful we will map all products  */}
    
