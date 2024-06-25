@@ -17,7 +17,11 @@ export default function WishlistPage() {
       fetchFromWishlistAsync()
     }
   },[user])
-
+  if(!wishListBooks.length){
+    return(
+      <h1>No items in your wishlist 😞</h1>
+    )
+  }
   return (
     <div className='wishlist-container container'>
       {wishListBooks && wishListBooks.map((book)=><WishListProduct book={book} key={book.id}/>)}

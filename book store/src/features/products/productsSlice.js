@@ -50,13 +50,7 @@ const productSlice=createSlice({
             })
             .addCase(fetchProductsAsync.fulfilled,(state,action)=>{
                 state.status = "succeeded"
-                let filteredBooks = action.payload
-                if(state.categoryFilter){ 
-                    console.log("state category filter:",state.categoryFilter)
-                    // filteredBooks = filteredBooks.filter((book)=>book.category === state.categoryFilter)
-                }
-                    state.books = filteredBooks
-                
+                state.books = action.payload                
             })
             .addCase(fetchProductsAsync.rejected,(state,action)=>{
                 state.status = "failed"
