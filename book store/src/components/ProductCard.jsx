@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../features/cart/cartSlice';
 import { addToWishlist } from '../features/wishlist/wishlistSlice';
 const ProductCard = ({book}) => {
-  console.log(book)
   const dispatch = useDispatch()
   const {user} = useSelector((state)=>state.user)
   const {cart} = useSelector((state)=>state.cart)

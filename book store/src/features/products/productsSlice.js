@@ -5,9 +5,10 @@ const initialState = {
     books:[],
     status:"idle",
     error:null,
-    categoryFilter:null,
+    categoryFilter:[],
     ratingFilter:null,
-    sortBy:null
+    sortBy:null,
+    priceFilter:null
 }
 
 export const fetchProductsAsync = createAsyncThunk(
@@ -15,7 +16,6 @@ export const fetchProductsAsync = createAsyncThunk(
     async ()=>{
         // try catch are not shown here because error will be handled with the help of redux state for this slice,
         // this is done just for learning purpose, it can also be done by try catch block but then api promise response will be fulfilled even after error
-
             const response = await productsApi;
             console.log("products slice async thunk resp:",response)
             return response
@@ -28,17 +28,35 @@ const productSlice=createSlice({
     reducers:{
         testReducer:(state,action)=>{
             console.log(state.books)
+        },
+        setFilterByCategory:(state,action)=>{
+            state.categoryFilter=action.payload
+        },
+        setSortBy:(state,action)=>{
+            state.sortBy = action.payload
+        },
+        setRatingFilter:(state,action)=>{
+            state.ratingFilter = action.payload
+        },
+        setPriceFilter:(state,action)=>{
+            state.priceFilter = action.payload
         }
     },
     extraReducers:(builder)=>{
         builder
             .addCase(fetchProductsAsync.pending,(state,action)=>{
-                state.status = "laoding",
+                state.status = "laoding"
                 state.error = null
             })
             .addCase(fetchProductsAsync.fulfilled,(state,action)=>{
-                state.status = "succeeded",
-                state.books = action.payload
+                state.status = "succeeded"
+                let filteredBooks = action.payload
+                if(state.categoryFilter){ 
+                    console.log("state category filter:",state.categoryFilter)
+                    // filteredBooks = filteredBooks.filter((book)=>book.category === state.categoryFilter)
+                }
+                    state.books = filteredBooks
+                
             })
             .addCase(fetchProductsAsync.rejected,(state,action)=>{
                 state.status = "failed"
@@ -48,4 +66,4 @@ const productSlice=createSlice({
 })
 
 export default productSlice.reducer
-export const {testReducer} = productSlice.actions
+export const {testReducer,setFilterByCategory,setRatingFilter,setPriceFilter,setSortBy} = productSlice.actions
