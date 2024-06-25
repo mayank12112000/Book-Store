@@ -27,6 +27,16 @@ const ProductListPage = () => {
     filteredBooks= filteredBooks.filter((book)=>categoryFilter.includes(book.category))
   }
 
+  if(ratingFilter){
+    filteredBooks = filteredBooks.filter((book)=>book.rating >= Number.parseInt(ratingFilter))
+  }
+  if(priceFilter){
+    filteredBooks = filteredBooks.filter((book)=>book.discountedPrice > Number.parseInt(priceFilter))
+  }
+  if(sortBy){
+    filteredBooks = [...filteredBooks].sort((book1,book2)=>  ((sortBy)*book1.discountedPrice) - ((sortBy)*book2.discountedPrice))
+  }
+
   return (
     <div className='product-list-container'>
       <Filters/>

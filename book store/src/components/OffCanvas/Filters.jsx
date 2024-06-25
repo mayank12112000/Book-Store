@@ -66,7 +66,7 @@ export default function Filters() {
 
         <div className="filter-rating">
           <div><b><small>Rating:</small></b></div>
-          {[1,2,3,4,5].map((rating)=>{
+          {[1,2,3,4].map((rating)=>{
             return(
           <div key={rating}>
             <input onChange={formChangeHandler} checked={filterForm.rating === rating.toString()} name='rating' type="radio" id={rating} value={rating}/>
