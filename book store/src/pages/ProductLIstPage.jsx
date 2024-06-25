@@ -20,25 +20,25 @@ const ProductListPage = () => {
   let filteredBooks = books
   useEffect(()=>{
     dispatch(fetchProductsAsync()) // hitting to the api to fetch products as the components mounts
-  },[dispatch,categoryFilter,ratingFilter,sortBy,priceFilter])
-
-  if(categoryFilter.length>0){
-    filteredBooks= filteredBooks.filter((book)=>categoryFilter.includes(book.category))
-  }
-
-  if(ratingFilter){
-    filteredBooks = filteredBooks.filter((book)=>book.rating >= Number.parseInt(ratingFilter))
-  }
-  if(priceFilter){
-    filteredBooks = filteredBooks.filter((book)=>book.discountedPrice > Number.parseInt(priceFilter))
-  }
-  if(sortBy){
-    filteredBooks = [...filteredBooks].sort((book1,book2)=>  ((sortBy)*book1.discountedPrice) - ((sortBy)*book2.discountedPrice))
-  }
-  if(searchBook.length>0){
-    const regex = new RegExp(`${searchBook}`,"gi")
-   filteredBooks = [...filteredBooks].filter((book)=>(book.title).match(regex) || book.author.match(regex)) 
-  }
+  },[categoryFilter,ratingFilter,sortBy,priceFilter,searchBook])
+    
+    if(categoryFilter.length>0){
+      filteredBooks= filteredBooks.filter((book)=>categoryFilter.includes(book.category))
+    }
+    
+    if(ratingFilter){
+      filteredBooks = filteredBooks.filter((book)=>book.rating >= Number.parseInt(ratingFilter))
+    }
+    if(priceFilter){
+      filteredBooks = filteredBooks.filter((book)=>book.discountedPrice > Number.parseInt(priceFilter))
+    }
+    if(sortBy){
+      filteredBooks = [...filteredBooks].sort((book1,book2)=>  ((sortBy)*book1.discountedPrice) - ((sortBy)*book2.discountedPrice))
+    }
+    if(searchBook.length>0){
+      const regex = new RegExp(`${searchBook}`,"gi")
+      filteredBooks = [...filteredBooks].filter((book)=>(book.title).match(regex) || book.author.match(regex)) 
+    }
   
   return (
     <div className='product-list-container'>
