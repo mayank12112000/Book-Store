@@ -53,7 +53,6 @@ const ProductListPage = () => {
       {/* // if retrieval of products is successful we will map all products  */}
    
       </div>
-    
     </div>
   );
 };
