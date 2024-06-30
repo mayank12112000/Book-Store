@@ -1,9 +1,0 @@
-.zoom-container {
-    overflow: hidden;
-    height: 80%;
-    transition: transform 0.5s ease;
-}
-
-.zoom-container:hover {
-    transform: scale(1.05);
-}
