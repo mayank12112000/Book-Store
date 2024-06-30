@@ -59,7 +59,7 @@ const ProductCard = ({ book }) => {
         <div className='card-title'>
           <h3 className='card-title-header'>{book.title}</h3>
           <div className="rating">
-            <div className='rated'>{book.rating}</div>
+            <p className='rated'>{book.rating}</p>
             <FontAwesomeIcon icon={faStar} />
           </div>
         </div>

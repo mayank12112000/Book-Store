@@ -77,11 +77,22 @@
     width: 95%;
 }
 .rating{
+    background-color: green;
+    height: 20px;
+    margin-left: 2px;
+    color: #fff;
+    padding: 0px 7px;
+    border-radius: 10px;
+    font-size: 10px;
     display: flex;
-    
+    align-items: center;
+    grid-gap: 2px;
+    gap: 2px;
+    font-weight: 400
 }
 .rated{
-    font-size: 1rem;
+ margin: 0;
+ font-size: 14px;
 }
 .star{
     height: 1rem;
