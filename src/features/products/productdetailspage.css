@@ -1,11 +1,14 @@
 .product-details-container{   
     padding: 100px;
-    max-width: 50rem;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+
 }
 .product-details-box{
     padding: 20px;
     height: 55%;
-    max-width: 100%;
+    max-width: 50rem;
     border: 2px solid black;
 }
 .product-image{
