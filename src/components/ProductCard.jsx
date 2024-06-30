@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import "./ProductCard.css"
 import { Link, useNavigate } from 'react-router-dom';
