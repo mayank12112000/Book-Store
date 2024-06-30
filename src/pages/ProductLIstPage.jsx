@@ -9,13 +9,6 @@ const ProductListPage = () => {
   // fetching products state variables from product slice
   const {books,error,status,categoryFilter,ratingFilter,sortBy,priceFilter,searchBook} = useSelector((state)=>state.products) 
   const dispatch = useDispatch()
-  console.log("bookslice books:",books)
-  console.log("bookslice state",status)
-  console.log("bookslice error:",error)
-  console.log("category filter:",categoryFilter)
-  console.log("sort by filter:",sortBy)
-  console.log("price Filter:",priceFilter)
-  console.log("rating Filter:",ratingFilter)
 
   let filteredBooks = books
   useEffect(()=>{

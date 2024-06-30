@@ -13,16 +13,13 @@ export default function ProductDetailPage() {
   const [bookFound, setBookFound] = useState(null)
   const { cart } = useSelector((state) => state.cart)
   const {wishList} = useSelector((state)=>state.wishlist)
-  console.log(wishList)
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  console.log(cart)
   useEffect(() => {
     if (books) {
       setBookFound(books.find((book) => (book.id).toString() === id))
     }
   }, [])
-  console.log(bookFound)
   if (bookFound) return (
     <div className='product-details-container'>
       <div className='product-details-box row row-cols-2'>

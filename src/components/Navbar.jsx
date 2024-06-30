@@ -11,7 +11,6 @@ const Navbar = () => {
   const {cart} = useSelector((state)=>state.cart)
   const {wishList} = useSelector((state)=>state.wishlist)
   const {searchBook} = useSelector((state)=>state.products)
-  console.log(searchBook)
   const dispatch = useDispatch()
   console.log("wishlist state:",wishList)
   const { pathname } = useLocation()

@@ -17,7 +17,6 @@ export default function LoginPage() {
   },[user])
   // login submit handler
   const onLoginHandler = (e) => {
-    console.log("login attempted")
     setTimeout(() => {
       dispatch(login(testCredentials))
       dispatch(fetchFromCartAsync())

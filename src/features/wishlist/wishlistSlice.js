@@ -25,7 +25,6 @@ const wishlistSlice = createSlice({
     initialState,
     reducers:{
         addToWishlist:(state,action)=>{
-            // console.log("reducer payload",action.payload)
             state.wishList.push(action.payload)
         },
         removerFromWishlist:(state,action)=>{

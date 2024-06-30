@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 
 export default function AddressDetails({ user }) {
     const { address } = user
-    console.log(user)
-    console.log("addreess:", address)
 
     return (
         <div className='profile-details'>

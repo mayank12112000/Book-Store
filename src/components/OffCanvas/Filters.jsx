@@ -8,8 +8,6 @@ export default function Filters() {
   const defaultFilters = {price:0,category:[],rating:null,sortBy:null}
   const [filterForm,setFilterForm] = useState(defaultFilters)
   const { categories } = useSelector((state) => state.categories)
-  const filter = useSelector((state)=>state.products)
-  console.log(filter)
   useEffect(()=>{
     dispatch(fetchCategoriesAsync())
   },[])
@@ -21,7 +19,6 @@ export default function Filters() {
     dispatch(setPriceFilter(filterForm.price))
   },[filterForm])
 
-  console.log("cat",categories)
 
   const formChangeHandler=(e)=>{
     const {name,value,type,checked} = e.target
