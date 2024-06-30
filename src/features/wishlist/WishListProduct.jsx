@@ -3,6 +3,7 @@ import "./wishlistproduct.css"
 import { removerFromWishlist } from './wishlistSlice'
 import { addToCart } from '../cart/cartSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 export default function WishListProduct({book}) {
     const dispatch = useDispatch()
     const {cart} = useSelector((state)=>state.cart)
@@ -19,7 +20,9 @@ export default function WishListProduct({book}) {
     <div className='cart-product wishlist-product'>
             <div className="image-details row">
                 <div className="image col-4">
+                    <Link to={`/product/${book.id}`}>
                     <img className='card-image' src={book.imgLink} alt={book.title} />
+                    </Link>
                 </div>
                 <div className="details col-6">
                 <h1 className='card-title-header'><big>{book.title}</big></h1>

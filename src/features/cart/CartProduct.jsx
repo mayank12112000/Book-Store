@@ -3,6 +3,7 @@ import "./cartProduct.css"
 import { useDispatch } from 'react-redux'
 import { removeCartItem, updateQuantity } from './cartSlice'
 import { addToWishlist } from '../wishlist/wishlistSlice'
+import { Link } from 'react-router-dom'
 export default function CartProduct({ book }) {
     const dispatch = useDispatch()
     const removeFromCartHandler=()=>{
@@ -16,7 +17,9 @@ export default function CartProduct({ book }) {
         <div className='cart-product'>
             <div className="image-details row">
                 <div className="image col-4">
+            <Link to={`/product/${book.id}`}>
                     <img className='card-image' src={`${book.imgLink}`} alt={book.title} />
+            </Link>
                 </div>
                 <div className="details col-6">
                 <h1 className='card-title-header'><big> {book.title}</big></h1>

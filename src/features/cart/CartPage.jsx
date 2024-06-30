@@ -9,7 +9,6 @@ export default function CartPage() {
   const {cart} = useSelector((state)=>state.cart)
   const { user } = useSelector((state) => state.user)
   const {books} = useSelector((state)=>state.products)
-  const dispatch = useDispatch()
   const [couponDiscountPercent,setCouponDiscoutPercent] = useState(0)
   // fetch book details using cart item id
   const cartBooks = cart.map((cartItem)=> {
