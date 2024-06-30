@@ -24,7 +24,7 @@ const Navbar = () => {
           {pathname === "/products" && <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>}
-          <Link to="/" className="navbar-brand"><b>Bookify</b></Link>
+          <Link to="/" className="navbar-brand"><b>Pustakalaya</b></Link>
         </div>
 
         <div className="search-bar d-none d-md-block" >
