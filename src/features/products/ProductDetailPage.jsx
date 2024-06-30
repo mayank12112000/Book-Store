@@ -7,6 +7,8 @@ import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import "./productdetailspage.css"
 import { addToCart } from '../cart/cartSlice';
 import { addToWishlist } from '../wishlist/wishlistSlice';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 export default function ProductDetailPage() {
   const { id } = useParams()
   const { books } = useSelector((state) => state.products)
@@ -28,7 +30,10 @@ export default function ProductDetailPage() {
         </div>
         <div className="col book-details">
           <p><b>{bookFound.title}</b></p>
-          <p>{bookFound.rating}<StarOutlineIcon /></p>
+          <div className="rating">
+            <p className='rated'>{bookFound.rating}</p>
+            <FontAwesomeIcon icon={faStar} />
+          </div>
           <div className='price'>
             <p className='disc-price'>{bookFound.discountedPrice}</p>
             <p className='actual-price'>{bookFound.price}</p>
