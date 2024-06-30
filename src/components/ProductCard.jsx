@@ -1,7 +1,5 @@
 import React, { useContext } from 'react';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import "./ProductCard.css"
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,7 +7,6 @@ import { addToCart } from '../features/cart/cartSlice';
 import { addToWishlist, removerFromWishlist } from '../features/wishlist/wishlistSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { faStarHalfAlt } from '@fortawesome/free-solid-svg-icons/faStarHalfAlt';
 import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
 const ProductCard = ({ book }) => {
   const dispatch = useDispatch()
@@ -47,7 +44,7 @@ const ProductCard = ({ book }) => {
           <img className='card-img' src={book.imgLink} alt="ikigai" />
         </Link>
         {isInWishlist ?
-          <span className='btn-primary'>
+          <span className=' btn-primary'>
             <big onClick={removeWishlistitem} className='wishlist-icon'>  <FontAwesomeIcon style={{ color: "red" }} icon={faHeart} /></big>
           </span>
           : <span onClick={addTOWishList} className=' btn-primary'>

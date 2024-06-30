@@ -13,6 +13,7 @@
 }
 .product-image{
     object-fit: contain;
+    /* height: 25rem; */
     width: 100%;
 }
 .book-details{

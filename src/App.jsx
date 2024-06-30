@@ -29,7 +29,7 @@ function App() {
     <Router>
       <div className='wrapper'>
       <main className='main'>
-          <Navbar />
+          <Navbar /> <br />
           <Routes>
             <Route path="/" exact element={<HomePage/>}/>
             <Route path="/products" exact element={<ProductListPage/>}/>
