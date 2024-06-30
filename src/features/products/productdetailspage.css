@@ -1,19 +1,16 @@
-.product-details-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;    
+.product-details-container{   
     padding: 100px;
+    max-width: 50rem;
 }
 .product-details-box{
     padding: 20px;
     height: 55%;
+    max-width: 100%;
     border: 2px solid black;
 }
-.card-image{
+.product-image{
     object-fit: contain;
-    height: 100%;
-    width: 15rem;
-
+    width: 100%;
 }
 .book-details{
     width: 15rem;

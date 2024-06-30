@@ -20,7 +20,7 @@ export default function ProductDetailPage() {
     <div className='product-details-container'>
       <div className='product-details-box row row-cols-2'>
         <div className="col">
-          <img className='card-image' src={bookFound.imgLink} alt={bookFound.title} />
+          <img className='product-image' src={bookFound.imgLink} alt={bookFound.title} />
         </div>
         <div className="col book-details">
           <p><b>{bookFound.title}</b></p>

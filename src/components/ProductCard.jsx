@@ -27,7 +27,7 @@ const ProductCard = ({ book }) => {
     }
   }
 
-  const removeWishlistitem = ()=>{
+  const removeWishlistitem = () => {
     dispatch(removerFromWishlist(book.id))
   }
   const addToCartHandler = () => {
@@ -47,12 +47,12 @@ const ProductCard = ({ book }) => {
           <img className='card-img' src={book.imgLink} alt="ikigai" />
         </Link>
         {isInWishlist ?
-          <span onClick={removeWishlistitem} className='wishlist-icon btn-primary'>
-            <big>  <FontAwesomeIcon style={{ color: "red" }} icon={faHeart} /></big>
+          <span className='btn-primary'>
+            <big onClick={removeWishlistitem} className='wishlist-icon'>  <FontAwesomeIcon style={{ color: "red" }} icon={faHeart} /></big>
           </span>
-    : <span onClick={addTOWishList} className='wishlist-icon btn-primary'>
-          <big><FontAwesomeIcon icon={faHeart} /></big>
-        </span>
+          : <span onClick={addTOWishList} className=' btn-primary'>
+            <big className='wishlist-icon'><FontAwesomeIcon icon={faHeart} /></big>
+          </span>
         }
       </div>
       <div className='info'>
