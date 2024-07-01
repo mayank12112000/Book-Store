@@ -42,8 +42,8 @@ const onLoginClick=()=>{
         <div id="formContent">
           <br /><h2>Login</h2> <br />
           <form onSubmit={onLoginHandler}>
-            <input name="email" onChange={changeHandler} value={formData.email} type="email" required id="login" className="fadeIn second"  placeholder="email" />
-            <input name="password" onChange={changeHandler} value={formData.password} type="password" required id="password" className="fadeIn third"  placeholder="password" />
+            <input name="email" onChange={changeHandler} value={formData.email} type="email" required id="login" className="fadeIn second"  placeholder="email" autoComplete='email' />
+            <input name="password" onChange={changeHandler} value={formData.password} type="password" required id="password" className="fadeIn third"  placeholder="password" autoComplete='password'/>
             <br />
             <input onClick={onLoginClick} type="submit" className="fadeIn fourth" value="Log In with test credentials" />
           </form>

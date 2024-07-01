@@ -13,10 +13,10 @@ const SignUpPage = () => {
       <div id="formContent">
         <br /><h2>Sign Up</h2> <br />
         <form onSubmit={onSubmitHandler}>
-          <input type="text" id="login" className="fadeIn second" name="login" placeholder="First name" />
-          <input type="text" id="login" className="fadeIn second" name="login" placeholder="Last name" />
-          <input type="email" id="login" className="fadeIn second" name="login" placeholder="login" />
-          <input type="password" id="password" className="fadeIn third" name="login" placeholder="password" />
+          <input type="text" id="fname" className="fadeIn second" name="fname" placeholder="First name" autoComplete='first-name' />
+          <input type="text" id="lname" className="fadeIn second" name="lname" placeholder="Last name" autoComplete='last-name'/>
+          <input type="email" id="email" className="fadeIn second" name="email" placeholder="email" autoComplete='email'/>
+          <input type="password" id="password" className="fadeIn third" name="password" placeholder="password" autoComplete='password'/>
           <br />
           <input type="submit" className="fadeIn fourth" value="Create new account" />
         </form>
