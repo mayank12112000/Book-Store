@@ -14,7 +14,6 @@
     margin: 20px 0;
 }
 .pricing{
-    border: 2px solid black;
     /* padding: 1rem; */
     p{
         margin: 0;
@@ -31,7 +30,7 @@
 
 }
 .text-center{
-    border-top: 1px  solid gray;
+    /* border-top: 1px  solid gray; */
     border-bottom: 1px solid gray;
 }
 
