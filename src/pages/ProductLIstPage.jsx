@@ -36,9 +36,6 @@ const ProductListPage = () => {
   return (
     <div className='product-list-container'>
       <Filters/>
-      <div className="product-list-header">
-        {/* showing all products */}
-      </div>
       {filteredBooks.length === 0 && <h1>Sorry , No products available.</h1>}
       <div className="responsive-grid">
       {/* {status === "Loading" && <Loader/>} */}
