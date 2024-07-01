@@ -77,13 +77,14 @@
 .rating{
     background-color: green;
     height: 20px;
-    width: 35px;
+    width: 40px;
     margin-left: 2px;
     color: #fff;
     padding: 0px 7px;
     border-radius: 10px;
     font-size: 10px;
     display: flex;
+    justify-content: space-around;
     align-items: center;
     grid-gap: 2px;
     gap: 2px;
