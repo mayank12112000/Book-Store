@@ -2,7 +2,7 @@
 
 /* Whole page styles */
 .homepage {
-    padding: 1rem; /* Adjust padding as needed */
+    padding: 0 1rem; /* Adjust padding as needed */
     display: flex;
     flex-direction: column;
     align-items: center;
