@@ -63,9 +63,6 @@ export default function AddOrEditAddress() {
           <button onClick={fillDummyData} type="button" className="btn btn-outline-warning">Fill with dummy data</button>
           </div>
         </form>
-        <div id="formFooter">
-          
-        </div>
       </div>
     </div>
   </div>

@@ -42,6 +42,7 @@ function App() {
             <Route path="/user_profile" element={<UserProfile/>}/>
             <Route path="/user_profile/address" element={<AddOrEditAddress/>}/>
             <Route path="/user_profile/address/:addressId" element={<AddOrEditAddress/>}/>
+            <Route path="*" element={<HomePage/>}/>
           </Routes>
       </main>
       </div>
