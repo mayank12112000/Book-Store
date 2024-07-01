@@ -40,14 +40,14 @@ const ProductCard = ({ book }) => {
     <div className='product-card-box'>
       <div className='product-img-card'>
         <Link to={`/product/${book.id}`}>
-          <img className='card-img' src={book.imgLink} alt="ikigai" />
+          <img className='card-img' src={book.imgLink} alt={book.title} />
         </Link>
         {isInWishlist ?
           <span className=' btn-primary'>
-            <big onClick={removeWishlistitem} className='wishlist-icon'>  <FontAwesomeIcon style={{ color: "red" }} icon={faHeart} /></big>
+            <big onClick={removeWishlistitem} className='wishlist-icon'> <big> <FontAwesomeIcon style={{ color: "red" }} icon={faHeart} /></big></big>
           </span>
           : <span onClick={addTOWishList} className=' btn-primary'>
-            <big className='wishlist-icon'><FontAwesomeIcon icon={faHeart} /></big>
+            <big className='wishlist-icon'> <big> <FontAwesomeIcon icon={faHeart} /></big></big>
           </span>
         }
       </div>
@@ -56,7 +56,7 @@ const ProductCard = ({ book }) => {
           <h3 className='card-title-header'>{book.title}</h3>
           <div className="rating">
             <p className='rated'>{book.rating}</p>
-            <FontAwesomeIcon icon={faStar} />
+             <FontAwesomeIcon icon={faStar} />
           </div>
         </div>
         <p className='author'>{book.author}</p>
