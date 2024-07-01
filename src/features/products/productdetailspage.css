@@ -27,3 +27,6 @@
     margin: 0.5rem 0;
     width: 95%;
 }
+.product-details-container .rating{
+    width: 45px;
+}
