@@ -61,7 +61,7 @@ const ProductCard = ({ book }) => {
         </div>
         <p className='author'>{book.author}</p>
         <div className='price'>
-          <p className='disc-price'>{book.discountedPrice}</p>
+          <p className='disc-price'>₹{book.discountedPrice}</p>
           <p className='actual-price'>{book.price}</p>
           <p className='price-percentage'>{`(${book.discountPercentage}% off)`}</p>
         </div>
