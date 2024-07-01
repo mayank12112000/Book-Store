@@ -1,39 +1,84 @@
-.image-box{
-    padding: 2rem 3rem;
-}
-.homepage{
-    /* padding: 1rem 6rem; */
-    .featured-heading{
-        text-align: center;
-    }
-}
-.image-container {
+/* homePage.css */
+
+/* Whole page styles */
+.homepage {
+    padding: 1rem; /* Adjust padding as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Header image section */
+  .image-box {
+    padding: 2rem 0; /* Adjust top and bottom padding */
     width: 100%;
-    height: 400px; /* Adjust height */
+  }
+  
+  .image-container {
+    height: 400px; /* Adjust height as needed */
     background-image: url('../assets/images/backgroundImage.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-  }
-.text-area{
-    color: white;
     position: relative;
-    width: 80%;
-    left: 50px;
-    top: 50px;
-    .btn{
-        background-color: #06aed8;
-        color: white;
-        font-weight: 700;
-    }
-}
-.category-container{
-    display: flex;
-    width: 40rem;
-    justify-content: space-around;
-}
-.category-box{
     display: flex;
     justify-content: center;
-    padding: 20px 0;
-}
+    align-items: center;
+  }
+  
+  .text-area {
+    color: white;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .text-area h2 {
+    font-size: 2rem; /* Adjust font size */
+    margin-bottom: 0.5rem;
+  }
+  
+  .text-area h1 {
+    font-size: 3rem; /* Adjust font size */
+    margin-bottom: 1rem;
+  }
+  
+  .btn {
+    background-color: #06aed8;
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #0588ac;
+  }
+  
+  /* Featured categories section */
+  .featured-heading {
+    text-align: center;
+    margin-top: 3rem; /* Adjust top margin */
+    margin-bottom: 1.5rem; /* Adjust bottom margin */
+  }
+  
+  .category-box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .category-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: space-around; /* Adjust alignment as needed */
+    max-width: 100%; /* Ensure it takes full width on smaller screens */
+    margin: 10px 0;
+  }
+  
+  .category-box .category-container .spinner {
+    padding: 20px; /*  Change the padding*/
+  }
