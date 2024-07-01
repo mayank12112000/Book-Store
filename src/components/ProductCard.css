@@ -1,99 +1,80 @@
-.product-card-box{
+.product-card-box {
     color: black;
-}
-
-.card{
-    width: 15rem;
-}
-.card-img {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 1rem;
+    background-color: #fff;
+  }
+  
+  .card {
+    width: 100%;
+  }
+  
+  .card-img {
     width: 100%;
     height: 15rem;
     object-fit: contain;
-}
-
-.wishlist-icon {
-    border-radius: 50%;
-    color: gray;
+  }
+  
+  .wishlist-icon {
     position: absolute;
-    font-weight: 600;
-    font-size: 1rem;
-    height: 100%;
-    right: 5%;
-}
-
-.wishlist-icon:hover{
+    top: 5px;
+    right: 5px;
+    font-size: 1.2rem;
+    color: gray;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .wishlist-icon:hover {
     color: rgb(212, 95, 95);
-}
-.card-title {
+  }
+  
+  .card-title {
     display: flex;
     justify-content: space-between;
-    overflow: hidden;
-
-    h3 {
-        margin: 0px;
-    }
-}
-
-.info {
-    padding: 0.5rem;
-}
-
-.card-title-header {
-    text-decoration: none ;
-    font-size: .85rem;
-}
-
-.author {
-    font-size: 0.8rem;
-}
-
-.price {
-    padding: 0;
-    font-size: 1.1rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-title-header {
+    font-size: 0.9rem;
+    margin: 0;
+  }
+  
+  .rating {
     display: flex;
-    margin-top: 0.5rem;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-}
-
-.disc-price {
-    display: inline;
-    padding-right: 0.45rem;
-}
-.actual-price {
-    text-decoration: line-through;
-    color: rgb(195, 190, 190);
-    padding-right: 0.45rem;
-}
-.price-percentage {
+    align-items: center;
+    gap: 2px;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: green;
+    padding: 4px 8px;
+    border-radius: 10px;
+  }
+  
+  .rated {
+    margin: 0;
+    font-size: 12px;
+  }
+  
+  .info {
+    padding: 0.5rem;
+  }
+  
+  .price {
+    display: flex;
+    align-items: center;
     font-size: 1rem;
-    align-self: center;
-}
-.add-cart{
+    margin-top: 0.5rem;
+  }
+  
+  .add-cart {
     background-color: #007bb5;
     color: white;
     width: 100%;
-}
-
-.rating{
-    background-color: green;
-    height: 20px;
-    width: 40px;
-    margin-left: 2px;
-    color: #fff;
-    padding: 0px 7px;
-    border-radius: 10px;
-    font-size: 10px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    grid-gap: 2px;
-    gap: 2px;
-    font-weight: 400
-}
-.rated{
- margin: 0;
- font-size: 14px;
-}
-.star{
-    height: 1rem;
-}
+    margin-top: 0.5rem;
+  }
+  
