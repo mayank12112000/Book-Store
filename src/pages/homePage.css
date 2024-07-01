@@ -23,12 +23,11 @@
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
   }
   
   .text-area {
+    padding: 15px;
     color: white;
-    text-align: center;
     position: relative;
     z-index: 1;
   }
@@ -43,8 +42,8 @@
     margin-bottom: 1rem;
   }
   
-  .btn {
-    background-color: #06aed8;
+  .homepage .btn {
+    background-color: #007bb5;
     color: white;
     font-weight: 700;
     padding: 0.75rem 1.5rem;
@@ -54,8 +53,9 @@
     transition: background-color 0.3s;
   }
   
-  .btn:hover {
-    background-color: #0588ac;
+  .homepage .btn:hover {
+    background-color: #356596;
+    color: white;
   }
   
   /* Featured categories section */
