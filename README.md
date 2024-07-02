@@ -25,43 +25,79 @@ State Management: Manage global state using Redux.
 
 Project Structure:
 book-store/
+
 ├── dist/
+
 │   ├── assets/
+
 │   │   ├── backgroundImage-TvkeL4-0.jpeg
+
 │   │   ├── index-1mnapi0X.js
+
 │   │   └── index-B1Sb0IbG.css
+
 │   └── index.html
+
 ├── public/
+
 │   ├── favicon.ico
+
 │   └── ...
+
 ├── src/
+
 │   ├── components/
+
 │   │   └── ...
+
 │   ├── features/
+
 │   │   ├── auth/
+
 │   │   │   ├── authSlice.js
+
 │   │   │   └── ...
+
 │   │   ├── cart/
+
 │   │   │   ├── cartSlice.js
+
 │   │   │   └── ...
+
 │   │   ├── wishlist/
+
 │   │   │   ├── wishlistSlice.js
+
 │   │   │   └── ...
+
 │   │   └── ...
+
 │   ├── pages/
+
 │   │   ├── HomePage.jsx
+
 │   │   ├── LoginPage.jsx
+
 │   │   ├── SignUpPage.jsx
+
 │   │   └── ...
+
 │   ├── App.jsx
+
 │   ├── main.jsx
+
 │   └── ...
+
 ├── .gitignore
+
 ├── index.html
+
 ├── package.json
+
 ├── postcss.config.js
-├── tailwind.config.js
+
 ├── vite.config.js
+
 └── ...
 
 
