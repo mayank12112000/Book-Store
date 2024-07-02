@@ -25,7 +25,6 @@ State Management: Manage global state using Redux.
 
 Project Structure:
 book-store/
-
 ├── dist/
 
 │   ├── assets/
