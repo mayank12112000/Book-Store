@@ -12,7 +12,7 @@ export default function WishListProduct({book}) {
     }
 
     const moveToCartHandler=()=>{
-        dispatch(removerFromWishlist(book.id))
+        // dispatch(removerFromWishlist(book.id))
         dispatch(addToCart({id:book.id,quantity:1})) 
     }
   return (
@@ -42,7 +42,7 @@ export default function WishListProduct({book}) {
                         {
                             cart.find((cartbook)=>cartbook.id === book.id)?
                             <button disabled className='btn btn-outline-success'>Already in Cart</button>:
-                            <button onClick={moveToCartHandler} className='btn btn-outline-warning'>Move to Cart</button>
+                            <button onClick={moveToCartHandler} className='btn btn-outline-warning'>Add to Cart</button>
                         }
                     </div>
                 </div>

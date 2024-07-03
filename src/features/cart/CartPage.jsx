@@ -9,6 +9,8 @@ export default function CartPage() {
   const {cart} = useSelector((state)=>state.cart)
   const { user } = useSelector((state) => state.user)
   const {books} = useSelector((state)=>state.products)
+  const {wishList} = useSelector((state)=>state.wishlist)
+  console.log(wishList)
   const [couponDiscountPercent,setCouponDiscoutPercent] = useState(0)
   // fetch book details using cart item id
   const cartBooks = cart.map((cartItem)=> {
@@ -19,8 +21,6 @@ export default function CartPage() {
   const cartPrice = cartBooks.reduce((total,book)=> total+(book.discountedPrice * book.quantity),0)
   const couponDiscount = Math.floor(cartPrice * (couponDiscountPercent/100))
   const netPrice = cartPrice - couponDiscount
-  console.log("cart books:",cartBooks)
-
   // const cartItems = 
   const navigate = useNavigate()
   useEffect(() => {
@@ -38,7 +38,7 @@ export default function CartPage() {
         <div className="container text-center product-cart-container">
           <div className="row">
             <div className="col-6 scrollable cart-boxes">
-              {cartBooks && cartBooks.map((cartbook)=><CartProduct book={cartbook} key={cartbook.id}/>) }
+              {cartBooks && cartBooks.map((cartbook)=><CartProduct inWishlist={wishList.find((wishlistBook)=>wishlistBook.id === cartbook.id)} book={cartbook} key={cartbook.id}/>) }
             </div>
             <div className="col-6 pricing cart-boxes">
               <ul className="coupon d-flex ">

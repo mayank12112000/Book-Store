@@ -4,14 +4,14 @@ import { useDispatch } from 'react-redux'
 import { removeCartItem, updateQuantity } from './cartSlice'
 import { addToWishlist } from '../wishlist/wishlistSlice'
 import { Link } from 'react-router-dom'
-export default function CartProduct({ book }) {
+export default function CartProduct({ inWishlist,book }) {
+    console.log(inWishlist)
     const dispatch = useDispatch()
     const removeFromCartHandler=()=>{
         dispatch(removeCartItem(book.id))
     }
     const addToWishListHandler=()=>{
         dispatch(addToWishlist({id:book.id}))
-        dispatch(removeCartItem(book.id))
     }
     return (
         <div className='cart-product'>
@@ -40,9 +40,15 @@ export default function CartProduct({ book }) {
                     <div className="col-6 d-flex justify-content-center">
                         <button onClick={removeFromCartHandler} className='btn btn-outline-primary'>Remove</button>
                     </div>
-                    <div className="col-6 d-flex justify-content-center">
+                    {inWishlist ?
+                        <div className="col-6 d-flex justify-content-center">
+                        <button disabled className='btn btn-outline-success'>Already in wishlist</button>
+                    </div>
+                    :
+                        <div className="col-6 d-flex justify-content-center">
                         <button onClick={addToWishListHandler} className='btn btn-outline-warning'>Add to wishlist</button>
                     </div>
+                    }
                 </div>
             </div>
         </div>
