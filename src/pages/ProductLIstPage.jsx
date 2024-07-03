@@ -36,7 +36,7 @@ const ProductListPage = () => {
   return (
     <div className='product-list-container'>
       <Filters/>
-      {filteredBooks.length === 0 && <h1>Sorry , No products available.</h1>}
+      {filteredBooks.length === 0 && <h1 className='sorry-message'>Sorry , No products available.</h1>}
       <div className="responsive-grid">
       {/* {status === "Loading" && <Loader/>} */}
       {status === "succeeded" && (filteredBooks.map((book)=><div key={book.id} className='card'><ProductCard book={book}/></div>))} 
