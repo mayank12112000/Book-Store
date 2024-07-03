@@ -82,3 +82,7 @@
   .category-box .category-container .spinner {
     padding: 20px; /*  Change the padding*/
   }
+  .feature-link{
+    color: black;
+    text-decoration: none;
+  }

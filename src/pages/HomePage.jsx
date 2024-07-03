@@ -6,6 +6,7 @@ import { fetchCategoriesAsync } from '../features/categories/categorySlice';
 import Spinner from '../components/Spinner';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import { setFilterByCategory } from '../features/products/productsSlice';
 const HomePage = () => {
   const {categories,error,status} = useSelector((state)=>state.categories)
   const dispatch = useDispatch()
@@ -34,7 +35,7 @@ const HomePage = () => {
       <div className='category-container'>
       {
         status === "loading"?(<Spinner/>):status==="failed"?(<div>failed to load category</div>):(
-          categories.map((category)=><FeaturedCategory category={category} key={category.name}/>)
+          categories.map((category)=> <Link className='feature-link' to="/products" key={category.name}><FeaturedCategory category={category}/></Link>)
         )
       }
       </div>
