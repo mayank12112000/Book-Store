@@ -57,10 +57,14 @@ export default function AddOrEditAddress() {
           <input required onChange={changeHandler} value={formData.pinCode} type="text" className="fadeIn third" name="pinCode" placeholder="Pin code" autoComplete='pincode'/>
           <input required onChange={changeHandler} value={formData.mobile} type="text" className="fadeIn third" name="mobile" placeholder="Enter Mobile number"  autoComplete='mobile-number'/>
           <br />
-          <div className="button-group container d-flex flex-row justify-content-around" >
+          <div className="button-group-address" >
+          <div className='dummy'>
+          <button onClick={fillDummyData} type="button" className="btn btn-outline-warning">Fill with dummy data</button>
+          </div>
+            <div className='edit-cancel'>
           <button type='submit' className="btn btn-outline-primary">{action==="add"?"Add":"Edit"}</button>
           <button onClick={()=>navigate(-1)} type='button' className="btn btn-outline-danger" >Cancel</button>
-          <button onClick={fillDummyData} type="button" className="btn btn-outline-warning">Fill with dummy data</button>
+            </div> 
           </div>
         </form>
       </div>

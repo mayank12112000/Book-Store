@@ -110,3 +110,25 @@
   margin: 5px;
   width: 85%;
 }
+.button-group-address{
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .btn{
+    height: 50px;
+    margin: 2px;
+  }
+}
+.edit-cancel{
+  display: flex;
+  justify-content: space-between;
+  .btn{
+    width: 48%;
+  }
+}
+.dummy{
+  .btn{
+    width: 100%;
+  }
+}
