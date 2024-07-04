@@ -28,8 +28,8 @@ const Navbar = () => {
         </div>
 
         {pathname === "/products" && <div className="search-bar d-none d-md-block" >
-          <span className=" search-icon"><SearchOutlinedIcon /></span>
-           <input onChange={searchHandler} value={searchBook} className="search-input" placeholder="search book" type="text" />
+          <span className=" search-icon">🔍</span>
+           <input onChange={searchHandler} value={searchBook} className="search-input" placeholder="   search book" type="text" />
         </div>}
         <div className="d-flex">
           <ul className="d-flex flex-row p-1 navbar-nav ml-auto">

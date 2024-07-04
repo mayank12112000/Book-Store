@@ -27,20 +27,20 @@
 
 .search-input {
     border: 0px;
-    border-radius: 0 0.2rem 0.2rem 0;
+    border-radius: 0 2rem 2rem 0;
 }
 
 .search-bar {
     background-color: white;
     border: 1px solid black;
-    border-radius: 0.2rem;
+    border-radius: 2rem;
     display: flex;
     height: 100%;
 }
 
 .search-icon {
     background-color: white;
-    border-radius: 0.2rem;
+    border-radius: 2rem;
     color: black;
 }
 
