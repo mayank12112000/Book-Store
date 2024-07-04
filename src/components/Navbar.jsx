@@ -10,13 +10,10 @@ import { setSearchBy } from "../features/products/productsSlice";
 const Navbar = () => {
   const {cart} = useSelector((state)=>state.cart)
   const {wishList} = useSelector((state)=>state.wishlist)
-  const {searchBook} = useSelector((state)=>state.products)
   const dispatch = useDispatch()
   console.log("wishlist state:",wishList)
   const { pathname } = useLocation()
-  const searchHandler = (e)=>{
-    dispatch(setSearchBy(e.target.value))
-  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="navbar-container">
@@ -27,10 +24,7 @@ const Navbar = () => {
           <Link to="/" className="navbar-brand"><b>Pustakalaya</b></Link>
         </div>
 
-        {pathname === "/products" && <div className="search-bar d-none d-md-block" >
-          <span className=" search-icon">🔍</span>
-           <input onChange={searchHandler} value={searchBook} className="search-input" placeholder="   search book" type="text" />
-        </div>}
+       
         <div className="d-flex">
           <ul className="d-flex flex-row p-1 navbar-nav ml-auto">
             <li className="nav-item mx-2">

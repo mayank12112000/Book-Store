@@ -3,11 +3,14 @@ import "./filters.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCategoriesAsync } from '../../features/categories/categorySlice'
 import { setFilterByCategory, setPriceFilter, setRatingFilter, setSearchBy, setSortBy } from '../../features/products/productsSlice'
+import { useLocation } from 'react-router-dom'
 export default function Filters() {
   const dispatch = useDispatch()
   const defaultFilters = {price:0,category:[],rating:null,sortBy:null}
   const [filterForm,setFilterForm] = useState(defaultFilters)
   const { categories } = useSelector((state) => state.categories)
+  const {searchBook} = useSelector((state)=>state.products)
+
   useEffect(()=>{
     dispatch(fetchCategoriesAsync())
   },[])
@@ -35,13 +38,20 @@ export default function Filters() {
     setFilterForm(defaultFilters)
     dispatch(setSearchBy(""))
   }
+  const searchHandler = (e)=>{
+    dispatch(setSearchBy(e.target.value))
+  }
   return (
-    <form className="offcanvas offcanvas-start custom-offcanvas" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <form onSubmit={(e)=>e.preventDefault()} className="offcanvas offcanvas-start custom-offcanvas" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
       <div className="offcanvas-header">
         <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">Filters</h5>
         <button onClick={clearFilter} type="reset" className='btn underline' data-bs-dismiss="offcanvas" aria-label="Close">Clear</button>
       </div>
       <div className="offcanvas-body " >
+      <div className="search-bar" >
+          <span className=" search-icon">🔍</span>
+           <input onChange={searchHandler} value={searchBook} className="search-input" placeholder="   search book" type="text" />
+        </div> <br/>
         <div className="filter-price">
           <b> <small>price:</small></b>
           <label htmlFor="customRange1" className="form-label price-ranges">
