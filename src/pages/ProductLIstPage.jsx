@@ -14,7 +14,7 @@ const ProductListPage = () => {
   useEffect(()=>{
     dispatch(fetchProductsAsync()) // hitting to the api to fetch products as the components mounts
   },[categoryFilter,ratingFilter,sortBy,priceFilter,searchBook])
-    
+    console.log(status)
     if(categoryFilter.length>0){
       filteredBooks= filteredBooks.filter((book)=>categoryFilter.includes(book.category))
     }
@@ -32,14 +32,15 @@ const ProductListPage = () => {
       const regex = new RegExp(`${searchBook}`,"gi")
       filteredBooks = [...filteredBooks].filter((book)=>(book.title).match(regex) || book.author.match(regex)) 
     }
-  
+
   return (
     <div className='product-list-container'>
       <Filters/>
-      {filteredBooks.length === 0 && <h1 className='sorry-message'>Sorry , No products available.</h1>}
+      {(!filteredBooks.length && status === "succeeded")&& 
+      <h1 className='sorry-message'>Sorry , No products available.</h1>
+      }
       <div className="responsive-grid">
-      {/* {status === "Loading" && <Loader/>} */}
-      {status === "succeeded" && (filteredBooks.map((book)=><div key={book.id} className='card'><ProductCard book={book}/></div>))} 
+      {status === "succeeded" ? (filteredBooks.map((book)=><div key={book.id} className='card'><ProductCard book={book}/></div>)): <Loader/>} 
       {/* // if retrieval of products is successful we will map all products  */}
    
       </div>
