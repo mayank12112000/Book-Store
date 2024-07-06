@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className="d-flex">
           <ul className="d-flex flex-row p-1 navbar-nav ml-auto">
             <li className="nav-item mx-2">
-              <NavLink to="/cart" activeClassName="active-nav-link" className="navbar-icons nav-link">
+              <NavLink to="/cart" activeclassname="active-nav-link" className="navbar-icons nav-link">
                 <div className="position-relative">
                   <ShoppingCartOutlinedIcon />
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -38,7 +38,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item mx-2">
-              <NavLink to="/wishlist" activeClassName="active-nav-link" className="navbar-icons nav-link">
+              <NavLink to="/wishlist" activeclassname="active-nav-link" className="navbar-icons nav-link">
                 <div className="position-relative">
                   <FavoriteBorderOutlinedIcon />
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
@@ -48,7 +48,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item mx-2">
-              <NavLink to="/user_profile" activeClassName="active-nav-link" className="navbar-icons nav-link"><AccountCircleOutlinedIcon /></NavLink>
+              <NavLink to="/user_profile" activeclassname="active-nav-link" className="navbar-icons nav-link"><AccountCircleOutlinedIcon /></NavLink>
             </li>
           </ul>
         </div>

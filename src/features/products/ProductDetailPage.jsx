@@ -8,58 +8,61 @@ import { addToCart } from '../cart/cartSlice';
 import { addToWishlist } from '../wishlist/wishlistSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { fetchBookAsync } from './productDetailsSlice';
 export default function ProductDetailPage() {
   const { id } = useParams()
   const { books } = useSelector((state) => state.products)
-  const [bookFound, setBookFound] = useState(null)
+  const dispatch = useDispatch()
+  console.log(books)
+  const {book} = useSelector((state)=>state.book)
   const { cart } = useSelector((state) => state.cart)
   const {wishList} = useSelector((state)=>state.wishlist)
   const navigate = useNavigate()
-  const dispatch = useDispatch()
+
   useEffect(() => {
     if (books) {
-      setBookFound(books.find((book) => (book.id).toString() === id))
+      dispatch(fetchBookAsync(id))
     }
-  }, [])
-  if (bookFound) return (
+  },[dispatch,id])
+  if (book) return (
     <div className='product-details-container'>
       <div className='product-details-box row row-cols-2'>
         <div className="col">
-          <img className='product-image' src={bookFound.imgLink} alt={bookFound.title} />
+          <img className='product-image' src={book.imgLink} alt={book.title} />
         </div>
         <div className="col book-details">
-          <p><b>{bookFound.title}</b></p>
+          <p><b>{book.title}</b></p>
           <div className="rating">
-            <p className='rated'>{bookFound.rating}</p>
+            <p className='rated'>{book.rating}</p>
             <FontAwesomeIcon icon={faStar} />
           </div>
           <div className='price'>
-            <p className='disc-price'>{bookFound.discountedPrice}</p>
-            <p className='actual-price'>{bookFound.price}</p>
-            <p className='price-percentage'>{`(${bookFound.discountPercentage}% off)`}</p>
+            <p className='disc-price'>{book.discountedPrice}</p>
+            <p className='actual-price'>{book.price}</p>
+            <p className='price-percentage'>{`(${book.discountPercentage}% off)`}</p>
           </div>
           <hr />
           <div className='book-detail'>
-            <p>Author: {bookFound.author}</p>
-            <p>Category: {bookFound.category}</p>
-            <p>Binding: {bookFound.binding}</p>
-            <p>Language: {bookFound.language}</p>
+            <p>Author: {book.author}</p>
+            <p>Category: {book.category}</p>
+            <p>Binding: {book.binding}</p>
+            <p>Language: {book.language}</p>
           </div> <hr />
-          {cart.find((cartBook) => cartBook.id === bookFound.id) ?
+          {cart.find((cartBook) => cartBook.id === book.id) ?
             <button onClick={()=>navigate(`/cart`)} className='btn default add-cart'>
               <ShoppingCartOutlinedIcon />Go to cart
             </button>
             :
-            <button onClick={()=>dispatch(addToCart({id:bookFound.id,quantity:1}))} className='btn default add-cart'>
+            <button onClick={()=>dispatch(addToCart({id:book.id,quantity:1}))} className='btn default add-cart'>
               <ShoppingCartOutlinedIcon />Add to cart
             </button>
           }
-          {wishList.find((wishlistBook)=>wishlistBook.id === bookFound.id)?
+          {wishList.find((wishlistBook)=>wishlistBook.id === book.id)?
             <button onClick={()=>navigate("/wishlist")} className='btn btn-outline-secondary favorite-btn'>
             <FavoriteBorderIcon />Go to wishlist
           </button>
           :
-            <button onClick={()=>dispatch(addToWishlist({id:bookFound.id}))} className='btn btn-outline-secondary favorite-btn'>
+            <button onClick={()=>dispatch(addToWishlist({id:book.id}))} className='btn btn-outline-secondary favorite-btn'>
             <FavoriteBorderIcon />Add to wishlist
           </button>
           }
