@@ -20,8 +20,8 @@ const productDetailsSlice = createSlice({
     name:"productdetails slice",
     initialState,
     reducers:{
-        demoReducer:(state,action)=>{
-            console.log(state)
+        setBookToNull:(state,action)=>{
+            state.book = null
         }
     },
     extraReducers:(builder)=>{
@@ -40,4 +40,4 @@ const productDetailsSlice = createSlice({
 })
 
 export default productDetailsSlice.reducer;
-export const {demoReducer} = productDetailsSlice.actions
+export const {setBookToNull} = productDetailsSlice.actions

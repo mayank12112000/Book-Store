@@ -8,7 +8,7 @@ import { addToCart } from '../cart/cartSlice';
 import { addToWishlist } from '../wishlist/wishlistSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { fetchBookAsync } from './productDetailsSlice';
+import { fetchBookAsync, setBookToNull } from './productDetailsSlice';
 export default function ProductDetailPage() {
   const { id } = useParams()
   const { books } = useSelector((state) => state.products)
@@ -20,6 +20,7 @@ export default function ProductDetailPage() {
   const navigate = useNavigate()
 
   useEffect(() => {
+    dispatch(setBookToNull()) // seting book details state to null when reloading for a new book so that previous book details was not able to show for a while
     if (books) {
       dispatch(fetchBookAsync(id))
     }
