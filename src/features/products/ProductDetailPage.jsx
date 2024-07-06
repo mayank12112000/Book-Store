@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import StarOutlineIcon from '@mui/icons-material/StarOutline';
 import "./productdetailspage.css"
 import { addToCart } from '../cart/cartSlice';
 import { addToWishlist } from '../wishlist/wishlistSlice';
