@@ -5,9 +5,9 @@
 .product-cart-container{
     margin: 0;
     padding: 0;
+    margin: auto;
 }
 .row{
-    width: 100vw;
     display: flex;
     justify-content: center;
     margin: 20px 0;
