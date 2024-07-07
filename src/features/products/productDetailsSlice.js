@@ -21,7 +21,9 @@ const productDetailsSlice = createSlice({
     initialState,
     reducers:{
         setBookToNull:(state,action)=>{
-            state.book = null
+            state.book = null,
+            state.error = null,
+            state.status = "idle"
         }
     },
     extraReducers:(builder)=>{
