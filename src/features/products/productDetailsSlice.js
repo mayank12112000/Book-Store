@@ -30,9 +30,12 @@ const productDetailsSlice = createSlice({
         builder
             .addCase(fetchBookAsync.pending,(state,action)=>{
                 state.status = "pending"
+                state.error = null
             })
             .addCase(fetchBookAsync.fulfilled,(state,action)=>{
                 state.book = action.payload
+                state.status = "success"
+                state.error = null
             })
             .addCase(fetchBookAsync.rejected,(state,action)=>{
                 state.error = action.error.message

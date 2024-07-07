@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import "./productdetailspage.css"
 import { addToCart } from '../cart/cartSlice';
 import { addToWishlist } from '../wishlist/wishlistSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { fetchBookAsync, setBookToNull } from './productDetailsSlice';
+import Loader from "../../components/Loader"
+import "./productdetailspage.css"
 export default function ProductDetailPage() {
   const { id } = useParams()
   const { books } = useSelector((state) => state.products)
+  const {book,status,error} = useSelector((state)=>state.book)
   const dispatch = useDispatch()
   console.log(books)
-  const {book} = useSelector((state)=>state.book)
   const { cart } = useSelector((state) => state.cart)
   const {wishList} = useSelector((state)=>state.wishlist)
   const navigate = useNavigate()
@@ -25,7 +26,10 @@ export default function ProductDetailPage() {
       dispatch(fetchBookAsync(id))
     }
   },[dispatch,id])
-  if (book) return (
+  if(status === "pending"){
+    return <Loader/>
+  }
+  if (status === "success" && error === null) return (
     <div className='product-details-container'>
       <div className='product-details-box row row-cols-2'>
         <div className="col">
