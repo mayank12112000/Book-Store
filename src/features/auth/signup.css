@@ -4,7 +4,6 @@
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  min-height: 100vh; /* Ensure it takes full viewport height */
   padding: 20px;
 }
 
