@@ -15,6 +15,7 @@ import UserProfile from './pages/UserProfile';
 import AddOrEditAddress from './pages/AddOrEditAddress';
 import { useDispatch } from 'react-redux';
 import { setUser } from './features/auth/authSlice';
+import Modal from './components/Modal';
 function App() {
   const dispatch = useDispatch();
 
@@ -28,23 +29,24 @@ function App() {
   return (
     <Router>
       <div className='wrapper'>
-      <main className='main'>
+          <Modal/>
+        <main className='main'>
           <Navbar /> <br />
           <Routes>
-            <Route path="/" exact element={<HomePage/>}/>
-            <Route path="/products" exact element={<ProductListPage/>}/>
-            <Route path="/product/:id" element={<ProductDetailPage/>}/>
-            <Route path="/cart" element={<CartPage/>}/>
-            <Route path="/wishlist" element={<WishlistPage/>}/>
-            <Route path="/signup" element={<SignUpPage/>}/>
-            <Route path="/login" element={<LoginPage/>}/>
-            <Route path="/checkout" element={<CheckoutPage/>}/>
-            <Route path="/user_profile" element={<UserProfile/>}/>
-            <Route path="/user_profile/address" element={<AddOrEditAddress/>}/>
-            <Route path="/user_profile/address/:addressId" element={<AddOrEditAddress/>}/>
-            <Route path="*" element={<HomePage/>}/>
+            <Route path="/" exact element={<HomePage />} />
+            <Route path="/products" exact element={<ProductListPage />} />
+            <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/wishlist" element={<WishlistPage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/user_profile" element={<UserProfile />} />
+            <Route path="/user_profile/address" element={<AddOrEditAddress />} />
+            <Route path="/user_profile/address/:addressId" element={<AddOrEditAddress />} />
+            <Route path="*" element={<HomePage />} />
           </Routes>
-      </main>
+        </main>
       </div>
     </Router>
   );
