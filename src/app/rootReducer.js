@@ -1,6 +1,7 @@
 import authSlice from "../features/auth/authSlice"
 import cartSlice from "../features/cart/cartSlice"
 import categorySlice from "../features/categories/categorySlice"
+import couponSlice from "../features/coupon/couponSlice"
 import productDetailsSlice from "../features/products/productDetailsSlice"
 import productsSlice from "../features/products/productsSlice"
 import wishlistSlice from "../features/wishlist/wishlistSlice"
@@ -11,6 +12,7 @@ const rootReducer = {
     products : productsSlice,
     cart:cartSlice,
     wishlist:wishlistSlice,
-    book:productDetailsSlice
+    book:productDetailsSlice,
+    coupon:couponSlice
 }
 export default rootReducer

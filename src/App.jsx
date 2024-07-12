@@ -15,7 +15,7 @@ import UserProfile from './pages/UserProfile';
 import AddOrEditAddress from './pages/AddOrEditAddress';
 import { useDispatch } from 'react-redux';
 import { setUser } from './features/auth/authSlice';
-import Modal from './components/Modal';
+import Modal from './components/CouponModal';
 function App() {
   const dispatch = useDispatch();
 

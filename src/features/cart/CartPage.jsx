@@ -11,7 +11,7 @@ export default function CartPage() {
   const { books } = useSelector((state) => state.products)
   const { wishList } = useSelector((state) => state.wishlist)
   console.log(wishList)
-  const [couponDiscountPercent, setCouponDiscoutPercent] = useState(0)
+  const {coupon} = useSelector((state)=>state.coupon)
   // fetch book details using cart item id
   const cartBooks = cart.map((cartItem) => {
     return { ...(books.find((book) => book.id === cartItem.id)), quantity: cartItem.quantity }
@@ -19,8 +19,9 @@ export default function CartPage() {
 
   const cartMrp = cartBooks.reduce((mrp, book) => mrp + (book.price * book.quantity), 0)
   const cartPrice = cartBooks.reduce((total, book) => total + (book.discountedPrice * book.quantity), 0)
-  const couponDiscount = Math.floor(cartPrice * (couponDiscountPercent / 100))
-  const netPrice = cartPrice - couponDiscount
+  const couponDiscount = Math.floor(cartPrice * (coupon?.discount / 100))
+  
+  const netPrice = cartPrice - (couponDiscount?couponDiscount:0)
   // const cartItems = 
   const navigate = useNavigate()
   useEffect(() => {
@@ -62,13 +63,18 @@ export default function CartPage() {
                   </div>
                   <div className='price-category coupon-discount'>
                     <span>Coupon Discount</span>
-                    <span>₹ {couponDiscount}</span>
+                    <span>-₹ {couponDiscount ? couponDiscount:0}</span>
                   </div>
                 </div>
+                {coupon && <div className='price-category coupon-applied coupon-discount'>
+                    <span>Coupon applied</span>
+                    <span>{coupon.name}</span>
+                  </div>}
                 <div className="price-totalAmt">
                   <h4>Total Amount</h4><h4>₹ {netPrice}</h4>
                 </div>
-                <p className="save-msg">You will save ₹ 1980.00 on this order</p>
+                
+                <p className="save-msg">You saved {cartMrp - netPrice} on this order</p>
                 <button className="btn btn btn default add-cart">
                   Checkout
                 </button>
