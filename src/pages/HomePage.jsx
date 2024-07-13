@@ -21,8 +21,8 @@ const HomePage = () => {
       <div className='image-box'>
       <div className='image-container'>
         <div className='text-area'>
-          <h2>Welcome to Bookify!</h2>
-          <h1>Find all your knowledge here!</h1>
+          <h2 className='text-border'>Welcome to Bookify!</h2>
+          <h1 className='text-border'>Find all your knowledge here!</h1>
           <Link to={'/products'}>
           <button className='btn'>Shop now</button>
           </Link>
