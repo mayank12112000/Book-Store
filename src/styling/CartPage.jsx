@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { fetchFromCartAsync } from './cartSlice'
+import { fetchFromCartAsync } from '../features/cart/cartSlice'
 import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import "./cartpage.css"
-import CartProduct from './CartProduct'
+import CartProduct from '../pages/CartProduct'
 export default function CartPage() {
   const { cart } = useSelector((state) => state.cart)
   const { user } = useSelector((state) => state.user)

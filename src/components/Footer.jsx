@@ -1,7 +1,7 @@
 // Footer.js
 
 import React from 'react';
-import './footer.css'
+import "./component-styling/footer.css"
 const Footer = () => {
   return (
     <footer className="footer bg-dark text-white text-center py-3">

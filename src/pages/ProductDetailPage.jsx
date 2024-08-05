@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import { addToCart } from '../cart/cartSlice';
-import { addToWishlist } from '../wishlist/wishlistSlice';
+import { addToCart } from '../features/cart/cartSlice';
+import { addToWishlist } from '../features/wishlist/wishlistSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import { fetchBookAsync, setBookToNull } from './productDetailsSlice';
-import Loader from "../../components/Loader"
-import "./productdetailspage.css"
+import { fetchBookAsync, setBookToNull } from '../features/products/productDetailsSlice';
+import Loader from "../components/Loader"
+import "../styling/productdetailspage.css"
 export default function ProductDetailPage() {
   const { id } = useParams()
   const { books } = useSelector((state) => state.products)

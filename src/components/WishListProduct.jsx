@@ -1,7 +1,7 @@
 import React from 'react'
-import "./wishlistproduct.css"
-import { removerFromWishlist } from './wishlistSlice'
-import { addToCart } from '../cart/cartSlice'
+import "../styling/wishlistproduct.css"
+import { removerFromWishlist } from '../features/wishlist/wishlistSlice'
+import { addToCart } from '../features/cart/cartSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 export default function WishListProduct({book}) {
@@ -12,7 +12,6 @@ export default function WishListProduct({book}) {
     }
 
     const moveToCartHandler=()=>{
-        // dispatch(removerFromWishlist(book.id))
         dispatch(addToCart({id:book.id,quantity:1})) 
     }
   return (

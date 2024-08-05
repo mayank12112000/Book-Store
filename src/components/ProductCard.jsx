@@ -1,6 +1,6 @@
 import React from 'react';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import "./ProductCard.css"
+import "./component-styling/ProductCard.css"
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../features/cart/cartSlice';

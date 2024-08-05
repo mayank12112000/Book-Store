@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { fetchFromWishlistAsync } from './wishlistSlice'
-import WishListProduct from './WishListProduct'
+import { fetchFromWishlistAsync } from '../features/wishlist/wishlistSlice'
+import WishListProduct from '../components/WishListProduct'
 export default function WishlistPage() {
 
   const {user} = useSelector((state)=>state.user)

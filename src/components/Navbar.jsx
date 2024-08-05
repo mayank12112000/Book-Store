@@ -1,4 +1,4 @@
-import "./Navbar.css";
+import "./component-styling/navbar.css";
 import React from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';

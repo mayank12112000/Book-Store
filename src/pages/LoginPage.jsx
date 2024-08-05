@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import "./loginpage.css"
+import "../styling/loginpage.css"
 import { Link, useNavigate } from 'react-router-dom'
-import testCredentials from './testCredentials'
+import testCredentials from '../features/auth/testCredentials'
 import { useDispatch, useSelector } from 'react-redux'
-import { login } from './authSlice'
-import { fetchFromCartAsync } from '../cart/cartSlice'
+import { login } from '../features/auth/authSlice'
+import { fetchFromCartAsync } from '../features/cart/cartSlice'
 export default function LoginPage() {
   const navigate = useNavigate()
   const [formData,setFormData] = useState({email:"",password:""})

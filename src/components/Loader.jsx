@@ -1,5 +1,5 @@
 import React from 'react';
-import './loader.css';
+import './component-styling/loader.css';
 
 // loader component to show in case of api response delay or failure
 const Loader = () => {

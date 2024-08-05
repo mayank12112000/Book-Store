@@ -1,8 +1,8 @@
 import React from 'react'
-import "./cartProduct.css"
+import "../styling/cartProduct.css"
 import { useDispatch } from 'react-redux'
-import { removeCartItem, updateQuantity } from './cartSlice'
-import { addToWishlist } from '../wishlist/wishlistSlice'
+import { removeCartItem, updateQuantity } from '../features/cart/cartSlice'
+import { addToWishlist } from '../features/wishlist/wishlistSlice'
 import { Link } from 'react-router-dom'
 export default function CartProduct({ inWishlist,book }) {
     console.log(inWishlist)

@@ -1,5 +1,5 @@
 import React from 'react'
-import "./featuredCategory.css"
+import "./component-styling/featuredCategory.css"
 
 export default function FeaturedCategory({category}) {
   return (
