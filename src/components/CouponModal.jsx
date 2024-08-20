@@ -11,26 +11,26 @@ export default function CouponModal() {
   }
   console.log(coupon);
   return (
-    <div style={{zIndex:"8000"}} class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div style={{zIndex:"8000"}} className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body coupons">
+                <div className="modal-body coupons">
                   {discounts.map((discount)=>{
                     return (
-                      <div>
-                      <input checked={coupon?.id === discount.id} onClick={()=>handleApplyCoupon(discount)} type="radio" id={discount.name} name="discount" />
+                      <div key={discount.id}>
+                      <input checked={coupon?.id === discount.id} onChange={()=>handleApplyCoupon(discount)} type="radio" id={discount.name} name="discount" />
                       <label htmlFor={discount.name}>{`${discount.discount}% off: ${discount.name}`}</label>
                       </div>
                     )
                   })}
                 </div>
-                <div class="modal-footer">
-                  <button type="button" onClick={()=>handleApplyCoupon(null)} class="btn btn-secondary" data-bs-dismiss="modal">{coupon ? `Clear`:`Close`}</button>
-                  <button type="button" disabled={!coupon} class="btn btn-primary" data-bs-dismiss="modal">Apply</button>
+                <div className="modal-footer">
+                  <button type="button" onClick={()=>handleApplyCoupon(null)} className="btn btn-secondary" data-bs-dismiss="modal">{coupon ? `Clear`:`Close`}</button>
+                  <button type="button" disabled={!coupon} className="btn btn-primary" data-bs-dismiss="modal">Apply</button>
                 </div>
               </div>
             </div>
