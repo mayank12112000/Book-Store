@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import Loader from '../components/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductsAsync } from '../features/products/productsSlice';
@@ -10,11 +10,13 @@ const ProductListPage = () => {
   const {books,error,status,categoryFilter,ratingFilter,sortBy,priceFilter,searchBook} = useSelector((state)=>state.products) 
   const dispatch = useDispatch()
 
-  let filteredBooks = books
   useEffect(()=>{
     dispatch(fetchProductsAsync()) // hitting to the api to fetch products as the components mounts
   },[categoryFilter,ratingFilter,sortBy,priceFilter,searchBook])
-    console.log(status)
+  console.log(status)
+  const filtered =useMemo(()=>{
+
+    let filteredBooks = books
     if(categoryFilter.length>0){
       filteredBooks= filteredBooks.filter((book)=>categoryFilter.includes(book.category))
     }
@@ -32,15 +34,17 @@ const ProductListPage = () => {
       const regex = new RegExp(`${searchBook}`,"gi")
       filteredBooks = [...filteredBooks].filter((book)=>(book.title).match(regex) || book.author.match(regex)) 
     }
+    return filteredBooks
+  },[books,categoryFilter,ratingFilter,sortBy,priceFilter,searchBook] )
 
   return (
     <div className='product-list-container'>
       <Filters/>
-      {(!filteredBooks.length && status === "succeeded")&& 
+      {(!filtered.length && status === "succeeded")&& 
       <h1 className='sorry-message'>Sorry , No products available.</h1>
       }
       <div className="responsive-grid">
-      {status === "succeeded" ? (filteredBooks.map((book)=><div key={book.id} className='card'><ProductCard book={book}/></div>)): <Loader/>} 
+      {status === "succeeded" ? (filtered.map((book)=><div key={book.id} className='card'><ProductCard book={book}/></div>)): <Loader/>} 
       {/* // if retrieval of products is successful we will map all products  */}
    
       </div>
